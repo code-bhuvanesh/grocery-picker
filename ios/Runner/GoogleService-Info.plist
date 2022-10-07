@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>922413793804-gc02g2pemn3rl6ff55mroacqrl1vdog6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.922413793804-gc02g2pemn3rl6ff55mroacqrl1vdog6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBLwk8IyG80MfGZfcM3wdgvjU2KyyHMm_g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>922413793804</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.groceryPicker</string>
+	<key>PROJECT_ID</key>
+	<string>grocerypicker-862b3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>grocerypicker-862b3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:922413793804:ios:fe2193e99163385fbde429</string>
+	<key>DATABASE_URL</key>
+	<string>https://grocerypicker-862b3-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
