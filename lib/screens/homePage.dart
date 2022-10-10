@@ -59,8 +59,8 @@ class _HomePageState extends State<HomePage> {
         fontSize: 16.0);
   }
 
-  var yourLocality = "";
-  var yourCity = "";
+  var yourLocality = "Enable";
+  var yourCity = "Location";
 
   Future<void> getGeoLoaction() async {
     bool serviceStatus = await Geolocator.isLocationServiceEnabled();

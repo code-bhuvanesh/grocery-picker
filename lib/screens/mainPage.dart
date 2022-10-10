@@ -76,6 +76,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        shadowColor: Colors.transparent,
+      ),
       body: PagesList[_selectedIndex],
       bottomNavigationBar: NavBar(
         onItemTap: changeIndex,
