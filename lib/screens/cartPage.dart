@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:ffi';
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -46,7 +47,7 @@ class _CartPageState extends State<CartPage> {
     super.initState();
   }
 
-  void deleteItem(String itemName, String storeName, int itemCount) {
+  void deleteItem(String itemName, String storeName) {
     var userRef = ref.child("cart").child(storeName).child(itemName);
 
     userRef.remove().then((value) => {
@@ -342,6 +343,9 @@ class ItemStyle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var downloadUrl =
+        "https://firebasestorage.googleapis.com/v0/b/grocerypicker-862b3.appspot.com/o/items%20images%2F${item.name}.jpg?alt=media&token=b252239b-4a3f-4355-92a8-c2f46cfe9332";
+
     itemCount = item.count;
     return Container(
       height: 120,
@@ -357,36 +361,16 @@ class ItemStyle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              FutureBuilder(
-                future: getDownloadUrl(item.name),
-                builder:
-                    (BuildContext context, AsyncSnapshot<String> snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done &&
-                      snapshot.hasData) {
-                    return SizedBox(
-                      height: 100,
-                      width: 100,
-                      child: Center(
-                        child: Image.network(
-                          snapshot.data!,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    );
-                  } else {
-                    return Container(
-                      height: 100,
-                      width: 100,
-                      alignment: Alignment.center,
-                      child: const SizedBox(
-                          height: 60,
-                          width: 60,
-                          child: Center(
-                            child: CircularProgressIndicator(),
-                          )),
-                    );
-                  }
-                },
+              SizedBox(
+                height: 100,
+                width: 100,
+                child: Center(
+                  child: CachedNetworkImage(
+                    imageUrl: downloadUrl,
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
               Expanded(
                 child: Column(
@@ -446,7 +430,9 @@ class ItemStyle extends StatelessWidget {
                             Column(
                               children: [
                                 IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      deleteItem(item.name, storeName);
+                                    },
                                     icon: const Icon(
                                       Icons.delete,
                                       color: Colors.red,
@@ -500,7 +486,6 @@ class _ItemCounterState extends State<ItemCounter> {
         userRef.update({"count": itemCount});
       } else {
         userRef.update({"count": itemCount});
-        print("***********************************************************");
       }
     });
   }

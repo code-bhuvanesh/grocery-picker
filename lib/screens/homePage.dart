@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -240,21 +241,20 @@ class _HomePageState extends State<HomePage> {
             ]),
           ),
           Expanded(
-            child: Container(
-                margin: const EdgeInsets.only(left: 5, right: 5),
-                // child: ListView(
-                //     children: items.entries
-                //         .map((e) => storeWidget(
-                //             Store.fromMap(e.value as Map<String, dynamic>)))
-                //         .toList())),
-                child: ListView.builder(
-                  itemCount: items.length,
-                  itemBuilder: ((context, i) => storeWidget(
-                        Store.fromMap(
-                          items.values.elementAt(i),
-                        ),
-                      )),
-                )),
+            child: items.isEmpty
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Container(
+                    margin: const EdgeInsets.only(left: 5, right: 5),
+                    child: ListView.builder(
+                      itemCount: items.length,
+                      itemBuilder: ((context, i) => storeWidget(
+                            Store.fromMap(
+                              items.values.elementAt(i),
+                            ),
+                          )),
+                    )),
           ),
         ],
       ),
@@ -287,6 +287,9 @@ class _HomePageState extends State<HomePage> {
       );
 
   Widget itemStyle(Store store, Item item) {
+    var downloadUrl =
+        "https://firebasestorage.googleapis.com/v0/b/grocerypicker-862b3.appspot.com/o/items%20images%2F${item.name}.jpg?alt=media&token=b252239b-4a3f-4355-92a8-c2f46cfe9332";
+
     var w = screenWidth / 2.6;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
@@ -300,30 +303,18 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              FutureBuilder(
-                future: getDownloadUrl(item.name),
-                builder:
-                    (BuildContext context, AsyncSnapshot<String> snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done &&
-                      snapshot.hasData) {
-                    return SizedBox(
-                      height: 60,
-                      child: Center(
-                        child: Image.network(
-                          snapshot.data!,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    );
-                  } else {
-                    return const SizedBox(
-                        height: 60,
-                        width: 60,
-                        child: Center(
-                          child: CircularProgressIndicator(),
-                        ));
-                  }
-                },
+              SizedBox(
+                height: 60,
+                child: Center(
+                  child: CachedNetworkImage(
+                    imageUrl: downloadUrl,
+                    placeholder: (context, url) => Container(
+                        height: 30,
+                        width: 30,
+                        child: CircularProgressIndicator()),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
               Column(
                 children: [
