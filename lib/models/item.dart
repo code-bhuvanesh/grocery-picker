@@ -3,7 +3,9 @@ class Item {
   final num price;
   final List<num> prePrice;
   final num ratting;
-  const Item({
+  late int count;
+  Item({
+    this.count = 1,
     required this.name,
     required this.price,
     required this.prePrice,
@@ -14,13 +16,14 @@ class Item {
       : name = itemMap["name"],
         price = itemMap["price"],
         prePrice = [], // itemMap["prePrice"],
-        ratting = 4.2; //itemMap["ratting"];
+        ratting = itemMap["ratting"] as num,
+        count = (itemMap["count"] != null) ? (itemMap["count"] as int) : 1;
 
   Map<String, dynamic> toMap() {
     return {
       "name": name,
       "price": price,
-      "prePrice": [],
+      "prePrice": prePrice,
       "ratting": ratting,
     };
   }

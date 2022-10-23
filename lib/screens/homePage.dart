@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  Future<void> loadItems() async {
+  void loadItems() async {
     final snapShot = await ref.child("stores").get();
     if (snapShot.exists) {
       Map<String, dynamic> map =
@@ -242,11 +242,19 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: Container(
                 margin: const EdgeInsets.only(left: 5, right: 5),
-                child: ListView(
-                    children: items.entries
-                        .map((e) => storeWidget(
-                            Store.fromMap(e.value as Map<String, dynamic>)))
-                        .toList())),
+                // child: ListView(
+                //     children: items.entries
+                //         .map((e) => storeWidget(
+                //             Store.fromMap(e.value as Map<String, dynamic>)))
+                //         .toList())),
+                child: ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: ((context, i) => storeWidget(
+                        Store.fromMap(
+                          items.values.elementAt(i),
+                        ),
+                      )),
+                )),
           ),
         ],
       ),
