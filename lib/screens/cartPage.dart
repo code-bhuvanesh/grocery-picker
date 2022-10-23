@@ -24,7 +24,7 @@ class _CartPageState extends State<CartPage> {
   late double screenWidth;
   late double screenheight;
   Map<String, dynamic> cartItems = {};
-
+  bool isCartItemsEmpty = false;
   Future<void> getCartItems() async {
     final snapShot = await ref.child("cart").get();
     if (snapShot.exists) {
@@ -34,11 +34,13 @@ class _CartPageState extends State<CartPage> {
       if (mounted) {
         setState(() {
           cartItems = map;
-          print("************************************************");
-          print(cartItems);
+          isCartItemsEmpty = cartItems.isEmpty;
         });
       }
     }
+    setState(() {
+      isCartItemsEmpty = cartItems.isEmpty;
+    });
   }
 
   @override
@@ -56,6 +58,7 @@ class _CartPageState extends State<CartPage> {
             if ((cartItems[storeName] as Map<String, dynamic>).isEmpty) {
               cartItems.remove(storeName);
             }
+            isCartItemsEmpty = cartItems.isEmpty;
           })
         });
   }
@@ -100,13 +103,40 @@ class _CartPageState extends State<CartPage> {
               ],
             ),
           ),
+          cartItems.isNotEmpty
+              ? Container(
+                  width: 200,
+                  height: 50,
+                  margin: const EdgeInsets.all(10),
+                  child: Card(
+                    color: Colors.green,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100)),
+                    child: const Center(
+                        child: Text(
+                      "Place Order",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                    )),
+                  ),
+                )
+              : const SizedBox.shrink(),
           Expanded(
-            child: ListView.builder(
-              itemCount: cartItems.length,
-              itemBuilder: (context, i) => storeWidget(
-                  {cartItems.keys.elementAt(i): cartItems.values.elementAt(i)}),
-            ),
-          )
+            child: cartItems.isNotEmpty
+                ? ListView.builder(
+                    itemCount: cartItems.length,
+                    itemBuilder: (context, i) => storeWidget({
+                      cartItems.keys.elementAt(i): cartItems.values.elementAt(i)
+                    }),
+                  )
+                : Center(
+                    child: isCartItemsEmpty
+                        ? const Text("your cart is empty")
+                        : const CircularProgressIndicator(),
+                  ),
+          ),
         ],
       ),
     );
@@ -138,186 +168,6 @@ class _CartPageState extends State<CartPage> {
       ],
     );
   }
-
-  // Widget itemStyle(Item item, String storeName) {
-  //   var itemCount = item.count;
-  //   return Container(
-  //     height: 120,
-  //     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
-  //     child: Card(
-  //       elevation: 7,
-  //       shadowColor: const Color.fromARGB(50, 12, 4, 4),
-  //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-  //       child: Container(
-  //         width: double.infinity,
-  //         padding: const EdgeInsets.all(5),
-  //         child: Row(
-  //           crossAxisAlignment: CrossAxisAlignment.start,
-  //           mainAxisAlignment: MainAxisAlignment.start,
-  //           children: [
-  //             FutureBuilder(
-  //               future: getDownloadUrl(item.name),
-  //               builder:
-  //                   (BuildContext context, AsyncSnapshot<String> snapshot) {
-  //                 if (snapshot.connectionState == ConnectionState.done &&
-  //                     snapshot.hasData) {
-  //                   return SizedBox(
-  //                     height: 100,
-  //                     width: 100,
-  //                     child: Center(
-  //                       child: Image.network(
-  //                         snapshot.data!,
-  //                         fit: BoxFit.cover,
-  //                       ),
-  //                     ),
-  //                   );
-  //                 } else {
-  //                   return const SizedBox(
-  //                       height: 60,
-  //                       width: 60,
-  //                       child: Center(
-  //                         child: CircularProgressIndicator(),
-  //                       ));
-  //                 }
-  //               },
-  //             ),
-  //             Expanded(
-  //               child: Column(
-  //                 crossAxisAlignment: CrossAxisAlignment.start,
-  //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //                 children: [
-  //                   Expanded(
-  //                     child: Container(
-  //                       child: Row(
-  //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //                         children: [
-  //                           Column(
-  //                             crossAxisAlignment: CrossAxisAlignment.start,
-  //                             children: [
-  //                               Padding(
-  //                                 padding: const EdgeInsets.symmetric(
-  //                                   vertical: 3,
-  //                                   horizontal: 5,
-  //                                 ),
-  //                                 child: Text(
-  //                                   item.name.inCaps,
-  //                                   style: const TextStyle(
-  //                                     fontWeight: FontWeight.w600,
-  //                                     fontSize: 16,
-  //                                   ),
-  //                                 ),
-  //                               ),
-  //                               Container(
-  //                                 margin:
-  //                                     const EdgeInsets.symmetric(horizontal: 6),
-  //                                 child: Row(
-  //                                   mainAxisAlignment:
-  //                                       MainAxisAlignment.spaceBetween,
-  //                                   children: [
-  //                                     Row(
-  //                                       children: [
-  //                                         Text(
-  //                                           "₹${item.price}",
-  //                                           style: const TextStyle(
-  //                                             fontWeight: FontWeight.w700,
-  //                                             fontSize: 16,
-  //                                           ),
-  //                                         ),
-  //                                         const Text(
-  //                                           "  per KG",
-  //                                           style: TextStyle(
-  //                                             fontSize: 10,
-  //                                           ),
-  //                                         ),
-  //                                       ],
-  //                                     ),
-  //                                   ],
-  //                                 ),
-  //                               )
-  //                             ],
-  //                           ),
-  //                           Column(
-  //                             children: [
-  //                               IconButton(
-  //                                   onPressed: () {},
-  //                                   icon: const Icon(
-  //                                     Icons.delete,
-  //                                     color: Colors.red,
-  //                                   )),
-  //                               Container(
-  //                                 height: 30,
-  //                                 child: Row(children: [
-  //                                   GestureDetector(
-  //                                     onTap: () {
-  //                                       setState(() {
-  //                                         if (itemCount > 0) {
-  //                                           changeItemCount(
-  //                                             item,
-  //                                             storeName,
-  //                                             itemCount - 1,
-  //                                           );
-  //                                         }
-  //                                       });
-  //                                     },
-  //                                     child: Container(
-  //                                       margin:
-  //                                           EdgeInsets.symmetric(horizontal: 8),
-  //                                       width: 30,
-  //                                       height: 30,
-  //                                       child: const Card(
-  //                                         color: Colors.green,
-  //                                         child: Icon(
-  //                                           Icons.remove,
-  //                                           size: 16,
-  //                                           color: Colors.white,
-  //                                         ),
-  //                                       ),
-  //                                     ),
-  //                                   ),
-  //                                   Text(itemCount.toString()),
-  //                                   GestureDetector(
-  //                                     onTap: () {
-  //                                       setState(() {
-  //                                         changeItemCount(
-  //                                           item,
-  //                                           storeName,
-  //                                           itemCount + 1,
-  //                                         );
-  //                                       });
-  //                                     },
-  //                                     child: Container(
-  //                                       margin:
-  //                                           EdgeInsets.symmetric(horizontal: 8),
-  //                                       width: 30,
-  //                                       height: 30,
-  //                                       child: const Card(
-  //                                         color: Colors.green,
-  //                                         child: Icon(
-  //                                           Icons.add,
-  //                                           size: 16,
-  //                                           color: Colors.white,
-  //                                         ),
-  //                                       ),
-  //                                     ),
-  //                                   ),
-  //                                 ]),
-  //                               )
-  //                             ],
-  //                           )
-  //                         ],
-  //                       ),
-  //                     ),
-  //                   )
-  //                 ],
-  //               ),
-  //             )
-  //           ],
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-
 }
 
 class ItemStyle extends StatelessWidget {
@@ -498,7 +348,7 @@ class _ItemCounterState extends State<ItemCounter> {
         GestureDetector(
           onTap: () {
             setState(() {
-              if (widget.itemCount > 0) {
+              if (widget.itemCount > 1) {
                 widget.itemCount -= 1;
                 changeItemCount(
                   widget.itemName,
