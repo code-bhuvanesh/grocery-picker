@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
-import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,7 +6,6 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
-import '../models/Store.dart';
 import '../models/item.dart';
 
 class CartPage extends StatefulWidget {
@@ -38,13 +35,26 @@ class _CartPageState extends State<CartPage> {
         });
       }
     }
-    setState(() {
-      isCartItemsEmpty = cartItems.isEmpty;
+    if (mounted) {
+      setState(() {
+        isCartItemsEmpty = cartItems.isEmpty;
+      });
+    }
+  }
+
+  void updateCartItems() {
+    ref.child("cart").onChildChanged.listen((event) {
+      if (mounted) {
+        setState(() {
+          getCartItems();
+        });
+      }
     });
   }
 
   @override
   void initState() {
+    updateCartItems();
     getCartItems();
     super.initState();
   }
@@ -61,6 +71,26 @@ class _CartPageState extends State<CartPage> {
             isCartItemsEmpty = cartItems.isEmpty;
           })
         });
+  }
+
+  num getTotalItemPrice(Map<String, dynamic> stores) {
+    num total = 0;
+    if (stores.isNotEmpty) {
+      stores.forEach((key, value) {
+        (value as Map<String, dynamic>).forEach((key1, value1) {
+          total += (value1["price"] as num) * (value1["count"] as num);
+        });
+      });
+    }
+    return total;
+  }
+
+  Future<void> placeOrder() async {
+    ref.child("orders").set(cartItems);
+    var ref1 = ref.root.child("storeUsers");
+    cartItems.forEach((key, value) {
+      ref1.child(key).child(UID!).set(value);
+    });
   }
 
   @override
@@ -105,21 +135,48 @@ class _CartPageState extends State<CartPage> {
           ),
           cartItems.isNotEmpty
               ? Container(
-                  width: 200,
-                  height: 50,
-                  margin: const EdgeInsets.all(10),
-                  child: Card(
-                    color: Colors.green,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100)),
-                    child: const Center(
-                        child: Text(
-                      "Place Order",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    )),
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Total",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 26),
+                          ),
+                          Text(
+                            "₹${getTotalItemPrice(cartItems)}",
+                            textAlign: TextAlign.left,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 20),
+                          )
+                        ],
+                      ),
+                      GestureDetector(
+                        onTap: placeOrder,
+                        child: Container(
+                          width: 200,
+                          height: 50,
+                          margin: const EdgeInsets.all(10),
+                          child: Card(
+                            color: Colors.green,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100)),
+                            child: const Center(
+                                child: Text(
+                              "Place Order",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20),
+                            )),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 )
               : const SizedBox.shrink(),
@@ -148,12 +205,24 @@ class _CartPageState extends State<CartPage> {
         Align(
           alignment: Alignment.topLeft,
           child: Container(
-            margin: const EdgeInsets.all(5),
-            child: Text(
-              store.keys.first,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
+            margin:
+                const EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  store.keys.first,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                Text(
+                  "₹${getTotalItemPrice(store)}",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

@@ -27,4 +27,14 @@ class Item {
       "ratting": ratting,
     };
   }
+
+  Map<String, dynamic> toMapC() {
+    return {
+      "name": name,
+      "price": price,
+      "prePrice": prePrice,
+      "ratting": ratting,
+      "count": count,
+    };
+  }
 }

@@ -116,9 +116,8 @@ class _HomePageState extends State<HomePage> {
         userRef.update({"count": (itemCount + 1)});
       } else {
         userRef.set(
-          item.toMap(),
+          item.toMapC(),
         );
-        userRef.update({"count": 1});
       }
     });
   }
