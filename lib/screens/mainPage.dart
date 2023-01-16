@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/parser.dart';
 import 'package:grocery_picker/screens/cartPage.dart';
 import 'package:grocery_picker/screens/homePage.dart';
 import 'package:grocery_picker/screens/loginPage.dart';
@@ -20,7 +18,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var _selectedIndex = 1;
+  var _selectedIndex = 0;
 
   void changeIndex(int pos) {
     setState(() {

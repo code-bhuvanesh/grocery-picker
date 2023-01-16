@@ -1,0 +1,1066 @@
+{
+  "stores": {
+    "Agro Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.892522231979939,
+      "locality": "shollinganallur",
+      "longitude": 80.22977055588974,
+      "name": "Agro Grocery"
+    },
+    "Authentic Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.896543614218771,
+      "locality": "shollinganallur",
+      "longitude": 80.2344634560052,
+      "name": "Authentic Grocery"
+    },
+    "Basketcase Supermarket": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.887286152184577,
+      "locality": "shollinganallur",
+      "longitude": 80.23554255922667,
+      "name": "Basketcase Supermarket"
+    },
+    "Berries & Blooms Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.899334368567748,
+      "locality": "shollinganallur",
+      "longitude": 80.23541363028504,
+      "name": "Berries & Blooms Grocery"
+    },
+    "Dear Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.886964370577793,
+      "locality": "shollinganallur",
+      "longitude": 80.22833181995449,
+      "name": "Dear Grocery"
+    },
+    "Farmer Jack’s Produce": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.893108176984901,
+      "locality": "shollinganallur",
+      "longitude": 80.22490785547302,
+      "name": "Farmer Jack’s Produce"
+    },
+    "Foodmoji": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.892807734994681,
+      "locality": "shollinganallur",
+      "longitude": 80.23016325786584,
+      "name": "Foodmoji"
+    },
+    "Fresh Pickens": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.897436100954115,
+      "locality": "shollinganallur",
+      "longitude": 80.22619027452255,
+      "name": "Fresh Pickens"
+    },
+    "Groceries Are Us": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.894468872638196,
+      "locality": "shollinganallur",
+      "longitude": 80.22718089218773,
+      "name": "Groceries Are Us"
+    },
+    "Groceteria": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.8874459723476,
+      "locality": "shollinganallur",
+      "longitude": 80.23569201514351,
+      "name": "Groceteria"
+    },
+    "Naturally Gourmet Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.891839546558742,
+      "locality": "shollinganallur",
+      "longitude": 80.22944555909544,
+      "name": "Naturally Gourmet Grocery"
+    },
+    "New Age Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.885101849061602,
+      "locality": "shollinganallur",
+      "longitude": 80.22891493435827,
+      "name": "New Age Grocery"
+    },
+    "Sparkling Foodie": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.900232999825825,
+      "locality": "shollinganallur",
+      "longitude": 80.23003229048616,
+      "name": "Sparkling Foodie"
+    },
+    "Tasty Treats": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.899061262274486,
+      "locality": "shollinganallur",
+      "longitude": 80.23099415820074,
+      "name": "Tasty Treats"
+    },
+    "The Everyday Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.893644376466547,
+      "locality": "shollinganallur",
+      "longitude": 80.22573833296983,
+      "name": "The Everyday Grocery"
+    },
+    "The Pick ‘n’ Mix": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.89282420788848,
+      "locality": "shollinganallur",
+      "longitude": 80.2337328748253,
+      "name": "The Pick ‘n’ Mix"
+    },
+    "Urban Organic Market": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.901750213552985,
+      "locality": "shollinganallur",
+      "longitude": 80.23192921704398,
+      "name": "Urban Organic Market"
+    },
+    "Wonderworld of Groceries": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.899249907293388,
+      "locality": "shollinganallur",
+      "longitude": 80.2276532065609,
+      "name": "Wonderworld of Groceries"
+    }
+  }
+}

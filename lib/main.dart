@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:grocery_picker/screens/mainPage.dart';
 import 'package:grocery_picker/screens/searchPage.dart';
 import 'package:grocery_picker/screens/settingsPage.dart';
+import 'package:grocery_picker/screens/shop_page.dart';
 
 import 'firebase_options.dart';
 import 'screens/loginPage.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         LoginPage.routeName: (context) => const LoginPage(),
         SearchPage.routeName: (context) => const SearchPage(),
         SettingsPage.routeName: (context) => const SettingsPage(),
+        ShopPage.routeName: (context) => const ShopPage(),
       },
     );
   }

@@ -10,11 +10,11 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:grocery_picker/screens/searchPage.dart';
 import 'package:grocery_picker/screens/settingsPage.dart';
+import 'package:grocery_picker/screens/shop_page.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../models/Store.dart';
 import '../models/item.dart';
-import '../utilities/uploadDummyData.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,6 +25,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   FirebaseDatabase database = FirebaseDatabase.instance;
   late DatabaseReference ref;
+  late Reference storageRef;
+
   Map<String, dynamic> items = {};
   @override
   void initState() {
@@ -48,6 +50,12 @@ class _HomePageState extends State<HomePage> {
         });
       }
     }
+  }
+
+  Future<String> getDownloadUrl(String imageName) async {
+    storageRef = FirebaseStorage.instance.ref().child("items images");
+    imageName = imageName.replaceAll(" ", "_");
+    return storageRef.child("$imageName.jpg").getDownloadURL();
   }
 
   void toastMsg(String msg) {
@@ -102,6 +110,16 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void showToast(String msg) {
+    Fluttertoast.showToast(
+        msg: msg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Color.fromARGB(255, 54, 54, 54),
+        timeInSecForIosWeb: 1,
+        fontSize: 16.0);
+  }
+
   void addToCart(Store store, Item item) {
     var userRef = ref
         .child("users")
@@ -120,6 +138,7 @@ class _HomePageState extends State<HomePage> {
         );
       }
     });
+    showToast("item added to cart");
   }
 
   late double screenWidth;
@@ -219,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                   maxLines: 1,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: const InputDecoration(
-                    hintText: "search for shop name or item",
+                    hintText: "search for shops",
                     filled: true,
                     fillColor: Color.fromARGB(255, 233, 233, 233),
                     prefixIcon: Padding(
@@ -260,30 +279,50 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget storeWidget(Store store) => SizedBox(
-        height: screenheight / 4,
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                margin: const EdgeInsets.all(5),
-                child: Text(
-                  store.name,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
+  Widget storeWidget(Store store) {
+    store.items.shuffle();
+    return SizedBox(
+      height: screenheight / 4,
+      child: Column(
+        children: [
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: const EdgeInsets.all(5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    store.name,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(ShopPage.routeName, arguments: store);
+                    },
+                    child: const Text(
+                      "show all",
+                      style: TextStyle(
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Expanded(
-                child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: store.items.map((e) => itemStyle(store, e)).toList(),
-            ))
-          ],
-        ),
-      );
+          ),
+          Expanded(
+              child: ListView(
+            padding: EdgeInsets.only(top: 5),
+            scrollDirection: Axis.horizontal,
+            children: store.items.map((e) => itemStyle(store, e)).toList(),
+          ))
+        ],
+      ),
+    );
+  }
 
   Widget itemStyle(Store store, Item item) {
     var downloadUrl =
@@ -383,13 +422,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-
-  late Reference storageRef;
-  Future<String> getDownloadUrl(String imageName) async {
-    storageRef = FirebaseStorage.instance.ref().child("items images");
-    imageName = imageName.replaceAll(" ", "_");
-    return storageRef.child("$imageName.jpg").getDownloadURL();
   }
 }
 

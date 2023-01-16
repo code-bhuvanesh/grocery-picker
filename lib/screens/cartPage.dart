@@ -1,12 +1,15 @@
 import 'dart:convert';
 
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:bottom_picker/bottom_picker.dart';
+import 'package:bottom_picker/resources/arrays.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../models/item.dart';
+import '../widgets/item_style_cart.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -34,6 +37,13 @@ class _CartPageState extends State<CartPage> {
           isCartItemsEmpty = cartItems.isEmpty;
         });
       }
+    } else {
+      if (mounted) {
+        setState(() {
+          cartItems = {};
+          isCartItemsEmpty = cartItems.isEmpty;
+        });
+      }
     }
     if (mounted) {
       setState(() {
@@ -44,6 +54,13 @@ class _CartPageState extends State<CartPage> {
 
   void updateCartItems() {
     ref.child("cart").onChildChanged.listen((event) {
+      if (mounted) {
+        setState(() {
+          getCartItems();
+        });
+      }
+    });
+    ref.onChildRemoved.listen((event) {
       if (mounted) {
         setState(() {
           getCartItems();
@@ -85,12 +102,74 @@ class _CartPageState extends State<CartPage> {
     return total;
   }
 
-  Future<void> placeOrder() async {
-    ref.child("orders").set(cartItems);
+  void showToast(String msg) {
+    Fluttertoast.showToast(
+        msg: msg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Color.fromARGB(255, 54, 54, 54),
+        timeInSecForIosWeb: 1,
+        fontSize: 16.0);
+  }
+
+  void placeOrder(DateTime pickupTime) async {
+    var orderedTime = DateTime.now();
+    var curRef = ref.child("orders").push();
+    var orderId = curRef.key;
+    await curRef.child("items").set(cartItems);
+    await curRef.child("orderId").set(orderId);
+    await curRef.child("collected").set(false);
+    await curRef.child("orderedTime").set(orderedTime.toIso8601String());
+    await curRef.child("pickupTime").set(pickupTime.toIso8601String());
     var ref1 = ref.root.child("storeUsers");
-    cartItems.forEach((key, value) {
-      ref1.child(key).child(UID!).set(value);
+    cartItems.forEach((key, value) async {
+      var total = getTotalItemPrice({key: value});
+      await ref1.child(key).child(UID!).child(orderId!).set({
+        "items": value,
+        "collected": false,
+        "orderId": orderId,
+        "orderedTime": orderedTime.toIso8601String(),
+        "pickupTIme": pickupTime.toIso8601String(),
+        "total": total
+      });
     });
+    await ref.child("cart").set({});
+    showToast("order placed");
+  }
+
+  void _openDateTimePickerWithCustomButton(BuildContext context) {
+    BottomPicker.time(
+      title: 'Select your pickup time',
+      titleStyle: const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+        color: Colors.black,
+      ),
+      onSubmit: (date) {
+        placeOrder(date);
+        print("placed order");
+      },
+      onClose: () {
+        print('Picker closed');
+      },
+      displayCloseIcon: false,
+      pickerTextStyle: const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+      bottomPickerTheme: BottomPickerTheme.blue,
+      dismissable: true,
+      displayButtonIcon: false,
+      buttonText: 'Confirm',
+      buttonTextStyle: const TextStyle(color: Colors.white),
+      buttonSingleColor: Colors.green,
+      minDateTime: DateTime.now(),
+      maxDateTime: DateTime.now().add(const Duration(hours: 5)),
+      // gradientColors: const [
+      //   Color(0xfffdcbf1),
+      //   Color(0xffe6dee9),
+      // ],
+    ).show(context);
   }
 
   @override
@@ -114,12 +193,14 @@ class _CartPageState extends State<CartPage> {
                   margin: EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      Icon(
-                        Icons.shopping_cart,
+                    children: [
+                      SvgPicture.asset(
+                        "assets/icons/cart-icon.svg",
+                        height: 20,
+                        width: 20,
                         color: Colors.white,
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(left: 5),
                         child: Text("Cart",
                             style: TextStyle(
@@ -145,18 +226,19 @@ class _CartPageState extends State<CartPage> {
                           const Text(
                             "Total",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 26),
+                                fontWeight: FontWeight.bold, fontSize: 20),
                           ),
                           Text(
                             "₹${getTotalItemPrice(cartItems)}",
                             textAlign: TextAlign.left,
                             style: const TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 20),
+                                fontWeight: FontWeight.w500, fontSize: 26),
                           )
                         ],
                       ),
                       GestureDetector(
-                        onTap: placeOrder,
+                        onTap: (() =>
+                            _openDateTimePickerWithCustomButton(context)),
                         child: Container(
                           width: 200,
                           height: 50,
@@ -228,7 +310,7 @@ class _CartPageState extends State<CartPage> {
         ),
         ...(store.values.first as Map<String, dynamic>)
             .values
-            .map((e) => ItemStyle(
+            .map((e) => ItemStyleCart(
                   item: Item.map(e),
                   storeName: store.keys.first,
                   deleteItem: deleteItem,
@@ -237,241 +319,4 @@ class _CartPageState extends State<CartPage> {
       ],
     );
   }
-}
-
-class ItemStyle extends StatelessWidget {
-  ItemStyle(
-      {super.key,
-      required this.item,
-      required this.storeName,
-      required this.deleteItem});
-  final Item item;
-  final String storeName;
-  final Function deleteItem;
-  late int itemCount;
-
-  static var UID = FirebaseAuth.instance.currentUser?.uid;
-  var ref = FirebaseDatabase.instance.ref("users/$UID");
-
-  late Reference storageRef;
-  Future<String> getDownloadUrl(String imageName) async {
-    storageRef = FirebaseStorage.instance.ref().child("items images");
-    imageName = imageName.replaceAll(" ", "_");
-    return storageRef.child("$imageName.jpg").getDownloadURL();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    var downloadUrl =
-        "https://firebasestorage.googleapis.com/v0/b/grocerypicker-862b3.appspot.com/o/items%20images%2F${item.name}.jpg?alt=media&token=b252239b-4a3f-4355-92a8-c2f46cfe9332";
-
-    itemCount = item.count;
-    return Container(
-      height: 120,
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
-      child: Card(
-        elevation: 7,
-        shadowColor: const Color.fromARGB(50, 12, 4, 4),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(5),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 100,
-                width: 100,
-                child: Center(
-                  child: CachedNetworkImage(
-                    imageUrl: downloadUrl,
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 3,
-                                    horizontal: 5,
-                                  ),
-                                  child: Text(
-                                    item.name.inCaps,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 6),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "₹${item.price}",
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                          const Text(
-                                            "  per KG",
-                                            style: TextStyle(
-                                              fontSize: 10,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                IconButton(
-                                    onPressed: () {
-                                      deleteItem(item.name, storeName);
-                                    },
-                                    icon: const Icon(
-                                      Icons.delete,
-                                      color: Colors.red,
-                                    )),
-                                ItemCounter(
-                                  itemCount: itemCount,
-                                  itemName: item.name,
-                                  storeName: storeName,
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ItemCounter extends StatefulWidget {
-  ItemCounter({
-    Key? key,
-    required this.itemCount,
-    required this.itemName,
-    required this.storeName,
-  }) : super(key: key);
-
-  int itemCount;
-  final String itemName;
-  final String storeName;
-
-  @override
-  State<ItemCounter> createState() => _ItemCounterState();
-}
-
-class _ItemCounterState extends State<ItemCounter> {
-  static var UID = FirebaseAuth.instance.currentUser?.uid;
-  var ref = FirebaseDatabase.instance.ref("users/$UID");
-  void changeItemCount(String itemName, String storeName, int itemCount) {
-    var userRef = ref.child("cart").child(storeName).child(itemName);
-
-    userRef.get().then((value) {
-      if (value.exists) {
-        userRef.update({"count": itemCount});
-      } else {
-        userRef.update({"count": itemCount});
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 30,
-      child: Row(children: [
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              if (widget.itemCount > 1) {
-                widget.itemCount -= 1;
-                changeItemCount(
-                  widget.itemName,
-                  widget.storeName,
-                  widget.itemCount,
-                );
-              }
-            });
-          },
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 8),
-            width: 30,
-            height: 30,
-            child: const Card(
-              color: Colors.green,
-              child: Icon(
-                Icons.remove,
-                size: 16,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-        Text(widget.itemCount.toString()),
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              widget.itemCount += 1;
-              changeItemCount(
-                widget.itemName,
-                widget.storeName,
-                widget.itemCount,
-              );
-            });
-          },
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 8),
-            width: 30,
-            height: 30,
-            child: const Card(
-              color: Colors.green,
-              child: Icon(
-                Icons.add,
-                size: 16,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      ]),
-    );
-  }
-}
-
-extension on String {
-  String get inCaps => '${this[0].toUpperCase()}${substring(1)}';
 }
