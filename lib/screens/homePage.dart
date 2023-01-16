@@ -238,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                   maxLines: 1,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: const InputDecoration(
-                    hintText: "search for shops",
+                    hintText: "search for a shop",
                     filled: true,
                     fillColor: Color.fromARGB(255, 233, 233, 233),
                     prefixIcon: Padding(
