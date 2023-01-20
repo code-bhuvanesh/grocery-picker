@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:grocery_picker/screens/mainPage.dart';
+import 'package:grocery_picker/screens/main_age.dart';
 
-import '../widgets/loginInputField.dart';
-import '../widgets/toggleButton.dart';
+import '../widgets/login_input_field.dart';
+import '../widgets/toggle_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
-import 'package:grocery_picker/screens/cartPage.dart';
-import 'package:grocery_picker/screens/homePage.dart';
-import 'package:grocery_picker/screens/loginPage.dart';
-import 'package:grocery_picker/screens/ordersPage.dart';
-import 'package:grocery_picker/screens/settingsPage.dart';
+import 'package:grocery_picker/screens/cart_page.dart';
+import 'package:grocery_picker/screens/home_page.dart';
+import 'package:grocery_picker/screens/login_page.dart';
+import 'package:grocery_picker/screens/orders_page.dart';
+import 'package:grocery_picker/screens/settings_page.dart';
 
-import '../widgets/navBar.dart';
+import '../widgets/nav_bar.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);

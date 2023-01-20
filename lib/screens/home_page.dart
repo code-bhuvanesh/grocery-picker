@@ -1,6 +1,5 @@
-import 'dart:convert';
-
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -8,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:grocery_picker/screens/searchPage.dart';
-import 'package:grocery_picker/screens/settingsPage.dart';
+import 'package:grocery_picker/screens/search_page.dart';
+import 'package:grocery_picker/screens/settings_page.dart';
 import 'package:grocery_picker/screens/shop_page.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -33,21 +32,45 @@ class _HomePageState extends State<HomePage> {
     ref = database.ref();
     storageRef = FirebaseStorage.instance.ref();
     // custom();
-    loadItems();
+    loadItems(null);
     getGeoLoaction();
     super.initState();
   }
 
-  void loadItems() async {
-    final snapShot = await ref.child("stores").get();
-    if (snapShot.exists) {
-      Map<String, dynamic> map =
-          jsonDecode(jsonEncode(snapShot.value)) as Map<String, dynamic>;
+  void loadItems(String? seachText) async {
+    print("on changed $seachText");
+    late QuerySnapshot snapShot;
+    // if (seachText == null || seachText.isEmpty) {
+    // snapShot = await FirebaseFirestore.instance
+    //     .collection("stores")
+    //     .doc("stores")
+    //     .get();
+    snapShot =
+        await FirebaseFirestore.instance.collection("stores").limit(20).get();
+    // } else {
+    snapShot = await FirebaseFirestore.instance
+        .collection("stores")
+        .where("name", isEqualTo: seachText)
+        .get();
+    // print(snapShot1.docs);
+    // print(snapShot1.docs);
+    // .doc("stores").
+    // .get();
+    // }
+    // print("item .............");
+    // print(snapShot.data());
+    items.clear();
+    for (var i in snapShot.docs) {
+      if (i.exists) {
+        var data = i.data() as dynamic;
+        var shopName = data["name"] as String;
+        var map = {shopName: data};
 
-      if (mounted) {
-        setState(() {
-          items = map;
-        });
+        if (mounted) {
+          setState(() {
+            items.addAll(map);
+          });
+        }
       }
     }
   }
@@ -176,33 +199,36 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 15, horizontal: 10),
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.location_pin,
-                            color: Colors.white,
-                            size: 25,
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(left: 5),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  yourLocality,
-                                  style: loactionTextStyle(24),
-                                ),
-                                Text(
-                                  yourCity,
-                                  style: loactionTextStyle(20),
-                                ),
-                              ],
+                    GestureDetector(
+                      onTap: getGeoLoaction,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 15, horizontal: 10),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.location_pin,
+                              color: Colors.white,
+                              size: 25,
                             ),
-                          ),
-                        ],
+                            Container(
+                              margin: const EdgeInsets.only(left: 5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    yourLocality,
+                                    style: loactionTextStyle(24),
+                                  ),
+                                  Text(
+                                    yourCity,
+                                    style: loactionTextStyle(20),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Container(
@@ -232,13 +258,14 @@ class _HomePageState extends State<HomePage> {
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: TextField(
                   onTap: () {
-                    Navigator.of(context).pushNamed(SearchPage.routeName);
+                    // Navigator.of(context).pushNamed(SearchPage.routeName);
                   },
-                  readOnly: true,
+                  // readOnly: true,
                   maxLines: 1,
+                  onChanged: loadItems,
                   textAlignVertical: TextAlignVertical.center,
                   decoration: const InputDecoration(
-                    hintText: "search for a shop",
+                    hintText: "search for shops",
                     filled: true,
                     fillColor: Color.fromARGB(255, 233, 233, 233),
                     prefixIcon: Padding(

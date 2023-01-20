@@ -49,6 +49,7 @@ dependencies:
   cached_network_image: ^3.2.2
   bottom_picker: ^2.0.1
   intl: ^0.17.0
+  cloud_firestore: ^3.5.1
 
 dev_dependencies:
   flutter_test:

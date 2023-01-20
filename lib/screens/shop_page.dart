@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_picker/screens/settingsPage.dart';
+import 'package:grocery_picker/screens/settings_page.dart';
 
 import '../models/Store.dart';
 

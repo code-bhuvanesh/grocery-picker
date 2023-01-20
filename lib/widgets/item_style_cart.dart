@@ -37,109 +37,104 @@ class ItemStyleCart extends StatelessWidget {
     return Container(
       height: 120,
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
-      child: Card(
-        elevation: 7,
-        shadowColor: const Color.fromARGB(50, 12, 4, 4),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(5),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 100,
-                width: 100,
-                child: Center(
-                  child: CachedNetworkImage(
-                    imageUrl: downloadUrl,
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                    fit: BoxFit.cover,
-                  ),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(5),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Center(
+                child: CachedNetworkImage(
+                  imageUrl: downloadUrl,
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  fit: BoxFit.cover,
                 ),
               ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 3,
-                                    horizontal: 5,
-                                  ),
-                                  child: Text(
-                                    item.name.inCaps,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 16,
-                                    ),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 3,
+                                  horizontal: 5,
+                                ),
+                                child: Text(
+                                  item.name.inCaps,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
                                   ),
                                 ),
-                                Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(horizontal: 6),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "₹${item.price}",
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 16,
-                                            ),
+                              ),
+                              Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 6),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "₹${item.price}",
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 16,
                                           ),
-                                          const Text(
-                                            "  per KG",
-                                            style: TextStyle(
-                                              fontSize: 10,
-                                            ),
+                                        ),
+                                        const Text(
+                                          "  per KG",
+                                          style: TextStyle(
+                                            fontSize: 10,
                                           ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                IconButton(
-                                    onPressed: () {
-                                      deleteItem(item.name, storeName);
-                                    },
-                                    icon: const Icon(
-                                      Icons.delete,
-                                      color: Colors.red,
-                                    )),
-                                ItemCounter(
-                                  itemCount: itemCount,
-                                  itemName: item.name,
-                                  storeName: storeName,
-                                )
-                              ],
-                            )
-                          ],
-                        ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              IconButton(
+                                  onPressed: () {
+                                    deleteItem(item.name, storeName);
+                                  },
+                                  icon: const Icon(
+                                    Icons.delete,
+                                    color: Colors.red,
+                                  )),
+                              ItemCounter(
+                                itemCount: itemCount,
+                                itemName: item.name,
+                                storeName: storeName,
+                              )
+                            ],
+                          )
+                        ],
                       ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

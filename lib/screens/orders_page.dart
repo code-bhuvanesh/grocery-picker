@@ -80,7 +80,7 @@ class _OrdersPageState extends State<OrdersPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -145,39 +145,39 @@ class _OrderWidgetState extends State<OrderWidget> {
   @override
   Widget build(BuildContext context) {
     var orderedTime = DateTime.parse(widget.order["orderedTime"]);
-    return Card(
-      shadowColor: Colors.black38,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(DateFormat("yMMMMd , hh:mm:a").format(orderedTime)),
-                IconButton(
-                    onPressed: () {
-                      setState(() {
-                        show = !show;
-                      });
-                    },
-                    icon: Icon(
-                        show ? Icons.arrow_drop_up : Icons.arrow_drop_down))
-              ],
-            ),
-            AnimatedOpacity(
-              opacity: show ? 1.0 : 0.0,
-              duration: Duration(milliseconds: 500),
-              child: Column(children: [
-                ...(show
-                    ? orderedStore.entries
-                        .map((e) => storeWidget({e.key: e.value}))
-                        .toList()
-                    : [SizedBox.shrink()])
-              ]),
-            )
-          ],
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          show = !show;
+        });
+      },
+      child: Card(
+        shadowColor: Colors.black38,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 8),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(DateFormat("y MMMM d , hh:mm:a").format(orderedTime)),
+                  Icon(show ? Icons.arrow_drop_up : Icons.arrow_drop_down),
+                ],
+              ),
+              AnimatedOpacity(
+                opacity: show ? 1.0 : 0.0,
+                duration: const Duration(milliseconds: 500),
+                child: Column(children: [
+                  ...(show
+                      ? orderedStore.entries
+                          .map((e) => storeWidget({e.key: e.value}))
+                          .toList()
+                      : [const SizedBox.shrink()])
+                ]),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -238,7 +238,7 @@ class _OrderWidgetState extends State<OrderWidget> {
                     child: Text(
                       "₹${getTotalItemPrice(store)}",
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                          const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                     ),
                   ),
                 ],

@@ -1,0 +1,2273 @@
+{
+  "storeUsers": {
+    "Agro Grocery": {
+      "Ni5agsuV1GfvfAUdHXi9S2UO5X12": {
+        "-NFF-Y77imM9qfYXrsLe": {
+          "collected": false,
+          "items": {
+            "brinjal": {
+              "count": 1,
+              "name": "brinjal",
+              "price": 65,
+              "ratting": 4.2
+            },
+            "cucumber": {
+              "count": 1,
+              "name": "cucumber",
+              "price": 55,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF-Y77imM9qfYXrsLe",
+          "orderedTime": "2022-10-25T22:08:10.183178",
+          "pickupTIme": "2022-10-25T22:17:00.000",
+          "total": 120
+        },
+        "-NFF-tYa1ZQOx20U4kbX": {
+          "collected": false,
+          "items": {
+            "apple": {
+              "count": 1,
+              "name": "apple",
+              "price": 240,
+              "ratting": 4.2
+            },
+            "bannana": {
+              "count": 1,
+              "name": "bannana",
+              "price": 40,
+              "ratting": 4.2
+            },
+            "cucumber": {
+              "count": 1,
+              "name": "cucumber",
+              "price": 55,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF-tYa1ZQOx20U4kbX",
+          "orderedTime": "2022-10-25T22:09:42.050076",
+          "pickupTIme": "2022-10-25T22:18:00.000",
+          "total": 335
+        },
+        "-NFF09CgLkTB1Y0YZhAg": {
+          "collected": false,
+          "items": {
+            "apple": {
+              "count": 1,
+              "name": "apple",
+              "price": 240,
+              "ratting": 4.2
+            },
+            "brinjal": {
+              "count": 1,
+              "name": "brinjal",
+              "price": 65,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF09CgLkTB1Y0YZhAg",
+          "orderedTime": "2022-10-25T22:10:50.282331",
+          "pickupTIme": "2022-10-25T22:10:48.724",
+          "total": 305
+        },
+        "-NFF0eI_2UTpa1gZ4Wf-": {
+          "collected": false,
+          "items": {
+            "corn": {
+              "count": 1,
+              "name": "corn",
+              "price": 86,
+              "ratting": 4.2
+            },
+            "garlic": {
+              "count": 1,
+              "name": "garlic",
+              "price": 185,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF0eI_2UTpa1gZ4Wf-",
+          "orderedTime": "2022-10-25T22:13:01.731832",
+          "pickupTIme": "2022-10-25T22:13:00.056433",
+          "total": 271
+        },
+        "-NFF0zhFDf4M9DjyYUUO": {
+          "collected": false,
+          "items": {
+            "cauliflower": {
+              "count": 1,
+              "name": "cauliflower",
+              "price": 60,
+              "ratting": 4.2
+            },
+            "ladies_finger": {
+              "count": 1,
+              "name": "ladies_finger",
+              "price": 48,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF0zhFDf4M9DjyYUUO",
+          "orderedTime": "2022-10-25T22:14:29.390499",
+          "pickupTIme": "2022-10-25T22:14:27.611100",
+          "total": 108
+        },
+        "-NFF1GPCHBA9aSLR9GBH": {
+          "collected": false,
+          "items": {
+            "bannana": {
+              "count": 1,
+              "name": "bannana",
+              "price": 40,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF1GPCHBA9aSLR9GBH",
+          "orderedTime": "2022-10-25T22:15:41.899691",
+          "pickupTIme": "2022-10-25T22:15:40.536128",
+          "total": 40
+        },
+        "-NFF533M67YcAeItiYm-": {
+          "collected": false,
+          "items": {
+            "apple": {
+              "count": 1,
+              "name": "apple",
+              "price": 240,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF533M67YcAeItiYm-",
+          "orderedTime": "2022-10-25T22:32:15.830296",
+          "pickupTIme": "2022-10-25T22:41:00.000",
+          "total": 240
+        },
+        "-NFF5SZqMR1GIXDf1lH8": {
+          "collected": false,
+          "items": {
+            "cauliflower": {
+              "count": 1,
+              "name": "cauliflower",
+              "price": 60,
+              "ratting": 4.2
+            },
+            "corn": {
+              "count": 1,
+              "name": "corn",
+              "price": 86,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF5SZqMR1GIXDf1lH8",
+          "orderedTime": "2022-10-25T22:34:00.310186",
+          "pickupTIme": "2022-10-25T22:40:00.000",
+          "total": 146
+        },
+        "-NFHJT-s3bGgnFFRr5dq": {
+          "collected": false,
+          "items": {
+            "watermelon": {
+              "count": 1,
+              "name": "watermelon",
+              "price": 18,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFHJT-s3bGgnFFRr5dq",
+          "orderedTime": "2022-10-26T08:54:26.551914",
+          "pickupTIme": "2022-10-26T10:57:00.000",
+          "total": 18
+        },
+        "-NFHhGBFTe5yZQDwGwc2": {
+          "collected": false,
+          "items": {
+            "apple": {
+              "count": 1,
+              "name": "apple",
+              "price": 240,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFHhGBFTe5yZQDwGwc2",
+          "orderedTime": "2022-10-26T10:42:47.631463",
+          "pickupTIme": "2022-10-26T10:45:00.000",
+          "total": 240
+        },
+        "-NFI2B5BIqbq22ZeYufq": {
+          "collected": false,
+          "items": {
+            "ladies_finger": {
+              "count": 2,
+              "name": "ladies_finger",
+              "price": 48,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFI2B5BIqbq22ZeYufq",
+          "orderedTime": "2022-10-26T12:18:33.932078",
+          "pickupTIme": "2022-10-26T12:21:00.000",
+          "total": 96
+        }
+      },
+      "rz3LeJKErbMTdEzEqxpnrfH2Xtr2": {
+        "-NFJWU4I0jHuIlgWpgFc": {
+          "collected": false,
+          "items": {
+            "bannana": {
+              "count": 1,
+              "name": "bannana",
+              "price": 40,
+              "ratting": 4.2
+            },
+            "brinjal": {
+              "count": 1,
+              "name": "brinjal",
+              "price": 65,
+              "ratting": 4.2
+            },
+            "carrot": {
+              "count": 1,
+              "name": "carrot",
+              "price": 120,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFJWU4I0jHuIlgWpgFc",
+          "orderedTime": "2022-10-26T19:10:33.234891",
+          "pickupTIme": "2022-10-26T19:10:29.248886",
+          "total": 225
+        },
+        "-NG-nxRMRvNgOiTo3kGj": {
+          "collected": false,
+          "items": {
+            "cauliflower": {
+              "count": 2,
+              "name": "cauliflower",
+              "price": 60,
+              "ratting": 4.2
+            },
+            "cucumber": {
+              "count": 1,
+              "name": "cucumber",
+              "price": 55,
+              "ratting": 4.2
+            },
+            "garlic": {
+              "count": 1,
+              "name": "garlic",
+              "price": 185,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NG-nxRMRvNgOiTo3kGj",
+          "orderedTime": "2022-11-04T09:34:33.685723",
+          "pickupTIme": "2022-11-04T14:34:00.000",
+          "total": 360
+        }
+      }
+    },
+    "Fresh Pickens": {
+      "Ni5agsuV1GfvfAUdHXi9S2UO5X12": {
+        "-NFJYd5h-xsXCXy8X6YQ": {
+          "collected": false,
+          "items": {
+            "ladies_finger": {
+              "count": 1,
+              "name": "ladies_finger",
+              "price": 48,
+              "ratting": 4.2
+            },
+            "watermelon": {
+              "count": 1,
+              "name": "watermelon",
+              "price": 18,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFJYd5h-xsXCXy8X6YQ",
+          "orderedTime": "2022-10-26T19:19:58.571126",
+          "pickupTIme": "2022-10-26T19:19:57.070201",
+          "total": 66
+        }
+      },
+      "rz3LeJKErbMTdEzEqxpnrfH2Xtr2": {
+        "-NHUGTcEIV9ALzVZxfcm": {
+          "collected": false,
+          "items": {
+            "carrot": {
+              "count": 1,
+              "name": "carrot",
+              "price": 120,
+              "ratting": 4.2
+            },
+            "garlic": {
+              "count": 1,
+              "name": "garlic",
+              "price": 185,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NHUGTcEIV9ALzVZxfcm",
+          "orderedTime": "2022-11-22T17:47:50.095157",
+          "pickupTIme": "2022-11-22T17:51:00.000",
+          "total": 305
+        }
+      }
+    },
+    "Groceries Are Us": {
+      "Ni5agsuV1GfvfAUdHXi9S2UO5X12": {
+        "-NFEZgqDG-zlU_q8GL3-": {
+          "collected": false,
+          "items": {
+            "watermelon": {
+              "count": 1,
+              "name": "watermelon",
+              "price": 18,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFEZgqDG-zlU_q8GL3-",
+          "orderedTime": "2022-10-25T20:06:29.964266",
+          "pickupTIme": "2022-10-25T20:09:00.000",
+          "total": 18
+        },
+        "-NFF-PlypW-yH2x93GTB": {
+          "collected": false,
+          "items": {
+            "watermelon": {
+              "count": 1,
+              "name": "watermelon",
+              "price": 18,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF-PlypW-yH2x93GTB",
+          "orderedTime": "2022-10-25T22:07:35.995160",
+          "pickupTIme": "2022-10-25T22:14:00.000",
+          "total": 18
+        },
+        "-NFF-Y77imM9qfYXrsLe": {
+          "collected": false,
+          "items": {
+            "carrot": {
+              "count": 1,
+              "name": "carrot",
+              "price": 120,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF-Y77imM9qfYXrsLe",
+          "orderedTime": "2022-10-25T22:08:10.183178",
+          "pickupTIme": "2022-10-25T22:17:00.000",
+          "total": 120
+        },
+        "-NFF5SZqMR1GIXDf1lH8": {
+          "collected": false,
+          "items": {
+            "carrot": {
+              "count": 1,
+              "name": "carrot",
+              "price": 120,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF5SZqMR1GIXDf1lH8",
+          "orderedTime": "2022-10-25T22:34:00.310186",
+          "pickupTIme": "2022-10-25T22:40:00.000",
+          "total": 120
+        },
+        "-NFHJT-s3bGgnFFRr5dq": {
+          "collected": false,
+          "items": {
+            "cauliflower": {
+              "count": 1,
+              "name": "cauliflower",
+              "price": 60,
+              "ratting": 4.2
+            },
+            "watermelon": {
+              "count": 1,
+              "name": "watermelon",
+              "price": 18,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFHJT-s3bGgnFFRr5dq",
+          "orderedTime": "2022-10-26T08:54:26.551914",
+          "pickupTIme": "2022-10-26T10:57:00.000",
+          "total": 78
+        }
+      },
+      "rz3LeJKErbMTdEzEqxpnrfH2Xtr2": {
+        "-NFJWU4I0jHuIlgWpgFc": {
+          "collected": false,
+          "items": {
+            "garlic": {
+              "count": 1,
+              "name": "garlic",
+              "price": 185,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFJWU4I0jHuIlgWpgFc",
+          "orderedTime": "2022-10-26T19:10:33.234891",
+          "pickupTIme": "2022-10-26T19:10:29.248886",
+          "total": 185
+        }
+      }
+    },
+    "Naturally Gourmet Grocery": {
+      "Ni5agsuV1GfvfAUdHXi9S2UO5X12": {
+        "-NFES8jedLd6VO676BpP": {
+          "collected": false,
+          "items": {
+            "brinjal": {
+              "count": 1,
+              "name": "brinjal",
+              "price": 65,
+              "ratting": 4.2
+            },
+            "ladies_finger": {
+              "count": 1,
+              "name": "ladies_finger",
+              "price": 48,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFES8jedLd6VO676BpP",
+          "orderedTime": "2022-10-25T19:33:31.177010",
+          "pickupTIme": "2022-10-25T19:35:00.000",
+          "total": 113
+        },
+        "-NFEZgqDG-zlU_q8GL3-": {
+          "collected": false,
+          "items": {
+            "brinjal": {
+              "count": 2,
+              "name": "brinjal",
+              "price": 65,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFEZgqDG-zlU_q8GL3-",
+          "orderedTime": "2022-10-25T20:06:29.964266",
+          "pickupTIme": "2022-10-25T20:09:00.000",
+          "total": 130
+        },
+        "-NFF-PlypW-yH2x93GTB": {
+          "collected": false,
+          "items": {
+            "brinjal": {
+              "count": 2,
+              "name": "brinjal",
+              "price": 65,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF-PlypW-yH2x93GTB",
+          "orderedTime": "2022-10-25T22:07:35.995160",
+          "pickupTIme": "2022-10-25T22:14:00.000",
+          "total": 130
+        },
+        "-NFF-Y77imM9qfYXrsLe": {
+          "collected": false,
+          "items": {
+            "brinjal": {
+              "count": 1,
+              "name": "brinjal",
+              "price": 65,
+              "ratting": 4.2
+            },
+            "watermelon": {
+              "count": 1,
+              "name": "watermelon",
+              "price": 18,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF-Y77imM9qfYXrsLe",
+          "orderedTime": "2022-10-25T22:08:10.183178",
+          "pickupTIme": "2022-10-25T22:17:00.000",
+          "total": 83
+        },
+        "-NFF-tYa1ZQOx20U4kbX": {
+          "collected": false,
+          "items": {
+            "cauliflower": {
+              "count": 1,
+              "name": "cauliflower",
+              "price": 60,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF-tYa1ZQOx20U4kbX",
+          "orderedTime": "2022-10-25T22:09:42.050076",
+          "pickupTIme": "2022-10-25T22:18:00.000",
+          "total": 60
+        },
+        "-NFF09CgLkTB1Y0YZhAg": {
+          "collected": false,
+          "items": {
+            "apple": {
+              "count": 1,
+              "name": "apple",
+              "price": 240,
+              "ratting": 4.2
+            },
+            "garlic": {
+              "count": 1,
+              "name": "garlic",
+              "price": 185,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF09CgLkTB1Y0YZhAg",
+          "orderedTime": "2022-10-25T22:10:50.282331",
+          "pickupTIme": "2022-10-25T22:10:48.724",
+          "total": 425
+        },
+        "-NFF0eI_2UTpa1gZ4Wf-": {
+          "collected": false,
+          "items": {
+            "apple": {
+              "count": 1,
+              "name": "apple",
+              "price": 240,
+              "ratting": 4.2
+            },
+            "bannana": {
+              "count": 1,
+              "name": "bannana",
+              "price": 40,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF0eI_2UTpa1gZ4Wf-",
+          "orderedTime": "2022-10-25T22:13:01.731832",
+          "pickupTIme": "2022-10-25T22:13:00.056433",
+          "total": 280
+        },
+        "-NFF0zhFDf4M9DjyYUUO": {
+          "collected": false,
+          "items": {
+            "bannana": {
+              "count": 1,
+              "name": "bannana",
+              "price": 40,
+              "ratting": 4.2
+            },
+            "carrot": {
+              "count": 1,
+              "name": "carrot",
+              "price": 120,
+              "ratting": 4.2
+            },
+            "ladies_finger": {
+              "count": 1,
+              "name": "ladies_finger",
+              "price": 48,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF0zhFDf4M9DjyYUUO",
+          "orderedTime": "2022-10-25T22:14:29.390499",
+          "pickupTIme": "2022-10-25T22:14:27.611100",
+          "total": 208
+        },
+        "-NFF1GPCHBA9aSLR9GBH": {
+          "collected": false,
+          "items": {
+            "ladies_finger": {
+              "count": 1,
+              "name": "ladies_finger",
+              "price": 48,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF1GPCHBA9aSLR9GBH",
+          "orderedTime": "2022-10-25T22:15:41.899691",
+          "pickupTIme": "2022-10-25T22:15:40.536128",
+          "total": 48
+        },
+        "-NFF533M67YcAeItiYm-": {
+          "collected": false,
+          "items": {
+            "bannana": {
+              "count": 1,
+              "name": "bannana",
+              "price": 40,
+              "ratting": 4.2
+            },
+            "cucumber": {
+              "count": 1,
+              "name": "cucumber",
+              "price": 55,
+              "ratting": 4.2
+            },
+            "ladies_finger": {
+              "count": 2,
+              "name": "ladies_finger",
+              "price": 48,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF533M67YcAeItiYm-",
+          "orderedTime": "2022-10-25T22:32:15.830296",
+          "pickupTIme": "2022-10-25T22:41:00.000",
+          "total": 191
+        },
+        "-NFF5SZqMR1GIXDf1lH8": {
+          "collected": false,
+          "items": {
+            "apple": {
+              "count": 1,
+              "name": "apple",
+              "price": 240,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF5SZqMR1GIXDf1lH8",
+          "orderedTime": "2022-10-25T22:34:00.310186",
+          "pickupTIme": "2022-10-25T22:40:00.000",
+          "total": 240
+        },
+        "-NFHJT-s3bGgnFFRr5dq": {
+          "collected": false,
+          "items": {
+            "cauliflower": {
+              "count": 1,
+              "name": "cauliflower",
+              "price": 60,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFHJT-s3bGgnFFRr5dq",
+          "orderedTime": "2022-10-26T08:54:26.551914",
+          "pickupTIme": "2022-10-26T10:57:00.000",
+          "total": 60
+        },
+        "-NFHhGBFTe5yZQDwGwc2": {
+          "collected": false,
+          "items": {
+            "apple": {
+              "count": 1,
+              "name": "apple",
+              "price": 240,
+              "ratting": 4.2
+            },
+            "brinjal": {
+              "count": 1,
+              "name": "brinjal",
+              "price": 65,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFHhGBFTe5yZQDwGwc2",
+          "orderedTime": "2022-10-26T10:42:47.631463",
+          "pickupTIme": "2022-10-26T10:45:00.000",
+          "total": 305
+        }
+      },
+      "rz3LeJKErbMTdEzEqxpnrfH2Xtr2": {
+        "-NG-nxRMRvNgOiTo3kGj": {
+          "collected": false,
+          "items": {
+            "apple": {
+              "count": 1,
+              "name": "apple",
+              "price": 240,
+              "ratting": 4.2
+            },
+            "carrot": {
+              "count": 1,
+              "name": "carrot",
+              "price": 120,
+              "ratting": 4.2
+            },
+            "cucumber": {
+              "count": 1,
+              "name": "cucumber",
+              "price": 55,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NG-nxRMRvNgOiTo3kGj",
+          "orderedTime": "2022-11-04T09:34:33.685723",
+          "pickupTIme": "2022-11-04T14:34:00.000",
+          "total": 415
+        }
+      }
+    },
+    "New Age Grocery": {
+      "Ni5agsuV1GfvfAUdHXi9S2UO5X12": {
+        "-NFES8jedLd6VO676BpP": {
+          "collected": false,
+          "items": {
+            "corn": {
+              "count": 1,
+              "name": "corn",
+              "price": 86,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFES8jedLd6VO676BpP",
+          "orderedTime": "2022-10-25T19:33:31.177010",
+          "pickupTIme": "2022-10-25T19:35:00.000",
+          "total": 86
+        },
+        "-NFEZgqDG-zlU_q8GL3-": {
+          "collected": false,
+          "items": {
+            "corn": {
+              "count": 1,
+              "name": "corn",
+              "price": 86,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFEZgqDG-zlU_q8GL3-",
+          "orderedTime": "2022-10-25T20:06:29.964266",
+          "pickupTIme": "2022-10-25T20:09:00.000",
+          "total": 86
+        },
+        "-NFF-PlypW-yH2x93GTB": {
+          "collected": false,
+          "items": {
+            "corn": {
+              "count": 1,
+              "name": "corn",
+              "price": 86,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NFF-PlypW-yH2x93GTB",
+          "orderedTime": "2022-10-25T22:07:35.995160",
+          "pickupTIme": "2022-10-25T22:14:00.000",
+          "total": 86
+        }
+      }
+    },
+    "The Pick 'n' Mix": {
+      "rz3LeJKErbMTdEzEqxpnrfH2Xtr2": {
+        "-NHUGTcEIV9ALzVZxfcm": {
+          "collected": false,
+          "items": {
+            "corn": {
+              "count": 1,
+              "name": "corn",
+              "price": 86,
+              "ratting": 4.2
+            },
+            "garlic": {
+              "count": 1,
+              "name": "garlic",
+              "price": 185,
+              "ratting": 4.2
+            }
+          },
+          "orderId": "-NHUGTcEIV9ALzVZxfcm",
+          "orderedTime": "2022-11-22T17:47:50.095157",
+          "pickupTIme": "2022-11-22T17:51:00.000",
+          "total": 271
+        }
+      }
+    }
+  },
+  "stores": {
+    "Agro Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.892522231979939,
+      "locality": "shollinganallur",
+      "longitude": 80.22977055588974,
+      "name": "Agro Grocery"
+    },
+    "Authentic Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.896543614218771,
+      "locality": "shollinganallur",
+      "longitude": 80.2344634560052,
+      "name": "Authentic Grocery"
+    },
+    "Basketcase Supermarket": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.887286152184577,
+      "locality": "shollinganallur",
+      "longitude": 80.23554255922667,
+      "name": "Basketcase Supermarket"
+    },
+    "Berries & Blooms Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.899334368567748,
+      "locality": "shollinganallur",
+      "longitude": 80.23541363028504,
+      "name": "Berries & Blooms Grocery"
+    },
+    "Dear Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.886964370577793,
+      "locality": "shollinganallur",
+      "longitude": 80.22833181995449,
+      "name": "Dear Grocery"
+    },
+    "Farmer Jack's Produce": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.893108176984901,
+      "locality": "shollinganallur",
+      "longitude": 80.22490785547302,
+      "name": "Farmer Jack's Produce"
+    },
+    "Foodmoji": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.892807734994681,
+      "locality": "shollinganallur",
+      "longitude": 80.23016325786584,
+      "name": "Foodmoji"
+    },
+    "Fresh Pickens": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.897436100954115,
+      "locality": "shollinganallur",
+      "longitude": 80.22619027452255,
+      "name": "Fresh Pickens"
+    },
+    "Groceries Are Us": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.894468872638196,
+      "locality": "shollinganallur",
+      "longitude": 80.22718089218773,
+      "name": "Groceries Are Us"
+    },
+    "Groceteria": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.8874459723476,
+      "locality": "shollinganallur",
+      "longitude": 80.23569201514351,
+      "name": "Groceteria"
+    },
+    "Naturally Gourmet Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.891839546558742,
+      "locality": "shollinganallur",
+      "longitude": 80.22944555909544,
+      "name": "Naturally Gourmet Grocery"
+    },
+    "New Age Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.885101849061602,
+      "locality": "shollinganallur",
+      "longitude": 80.22891493435827,
+      "name": "New Age Grocery"
+    },
+    "Sparkling Foodie": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.900232999825825,
+      "locality": "shollinganallur",
+      "longitude": 80.23003229048616,
+      "name": "Sparkling Foodie"
+    },
+    "Tasty Treats": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.899061262274486,
+      "locality": "shollinganallur",
+      "longitude": 80.23099415820074,
+      "name": "Tasty Treats"
+    },
+    "The Everyday Grocery": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.893644376466547,
+      "locality": "shollinganallur",
+      "longitude": 80.22573833296983,
+      "name": "The Everyday Grocery"
+    },
+    "The Pick 'n' Mix": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.89282420788848,
+      "locality": "shollinganallur",
+      "longitude": 80.2337328748253,
+      "name": "The Pick 'n' Mix"
+    },
+    "Urban Organic Market": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.901750213552985,
+      "locality": "shollinganallur",
+      "longitude": 80.23192921704398,
+      "name": "Urban Organic Market"
+    },
+    "Wonderworld of Groceries": {
+      "address": "shollinganallur",
+      "items": {
+        "apple": {
+          "name": "apple",
+          "price": 240,
+          "ratting": 4.2
+        },
+        "bannana": {
+          "name": "bannana",
+          "price": 40,
+          "ratting": 4.2
+        },
+        "brinjal": {
+          "name": "brinjal",
+          "price": 65,
+          "ratting": 4.2
+        },
+        "carrot": {
+          "name": "carrot",
+          "price": 120,
+          "ratting": 4.2
+        },
+        "cauliflower": {
+          "name": "cauliflower",
+          "price": 60,
+          "ratting": 4.2
+        },
+        "corn": {
+          "name": "corn",
+          "price": 86,
+          "ratting": 4.2
+        },
+        "cucumber": {
+          "name": "cucumber",
+          "price": 55,
+          "ratting": 4.2
+        },
+        "garlic": {
+          "name": "garlic",
+          "price": 185,
+          "ratting": 4.2
+        },
+        "ladies_finger": {
+          "name": "ladies_finger",
+          "price": 48,
+          "ratting": 4.2
+        },
+        "watermelon": {
+          "name": "watermelon",
+          "price": 18,
+          "ratting": 4.2
+        }
+      },
+      "latitude": 12.899249907293388,
+      "locality": "shollinganallur",
+      "longitude": 80.2276532065609,
+      "name": "Wonderworld of Groceries"
+    }
+  },
+  "users": {
+    "Ni5agsuV1GfvfAUdHXi9S2UO5X12": {
+      "orders": {
+        "-NFEZgqDG-zlU_q8GL3-": {
+          "collected": false,
+          "items": {
+            "Groceries Are Us": {
+              "watermelon": {
+                "count": 1,
+                "name": "watermelon",
+                "price": 18,
+                "ratting": 4.2
+              }
+            },
+            "Naturally Gourmet Grocery": {
+              "brinjal": {
+                "count": 2,
+                "name": "brinjal",
+                "price": 65,
+                "ratting": 4.2
+              }
+            },
+            "New Age Grocery": {
+              "corn": {
+                "count": 1,
+                "name": "corn",
+                "price": 86,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFEZgqDG-zlU_q8GL3-",
+          "orderedTime": "2022-10-25T20:06:29.964266",
+          "pickupTime": "2022-10-25T20:09:00.000"
+        },
+        "-NFF-Y77imM9qfYXrsLe": {
+          "collected": false,
+          "items": {
+            "Agro Grocery": {
+              "brinjal": {
+                "count": 1,
+                "name": "brinjal",
+                "price": 65,
+                "ratting": 4.2
+              },
+              "cucumber": {
+                "count": 1,
+                "name": "cucumber",
+                "price": 55,
+                "ratting": 4.2
+              }
+            },
+            "Groceries Are Us": {
+              "carrot": {
+                "count": 1,
+                "name": "carrot",
+                "price": 120,
+                "ratting": 4.2
+              }
+            },
+            "Naturally Gourmet Grocery": {
+              "brinjal": {
+                "count": 1,
+                "name": "brinjal",
+                "price": 65,
+                "ratting": 4.2
+              },
+              "watermelon": {
+                "count": 1,
+                "name": "watermelon",
+                "price": 18,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFF-Y77imM9qfYXrsLe",
+          "orderedTime": "2022-10-25T22:08:10.183178",
+          "pickupTime": "2022-10-25T22:17:00.000"
+        },
+        "-NFF0eI_2UTpa1gZ4Wf-": {
+          "collected": false,
+          "items": {
+            "Agro Grocery": {
+              "corn": {
+                "count": 1,
+                "name": "corn",
+                "price": 86,
+                "ratting": 4.2
+              },
+              "garlic": {
+                "count": 1,
+                "name": "garlic",
+                "price": 185,
+                "ratting": 4.2
+              }
+            },
+            "Naturally Gourmet Grocery": {
+              "apple": {
+                "count": 1,
+                "name": "apple",
+                "price": 240,
+                "ratting": 4.2
+              },
+              "bannana": {
+                "count": 1,
+                "name": "bannana",
+                "price": 40,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFF0eI_2UTpa1gZ4Wf-",
+          "orderedTime": "2022-10-25T22:13:01.731832",
+          "pickupTime": "2022-10-25T22:13:00.056433"
+        },
+        "-NFF533M67YcAeItiYm-": {
+          "collected": false,
+          "items": {
+            "Agro Grocery": {
+              "apple": {
+                "count": 1,
+                "name": "apple",
+                "price": 240,
+                "ratting": 4.2
+              }
+            },
+            "Naturally Gourmet Grocery": {
+              "bannana": {
+                "count": 1,
+                "name": "bannana",
+                "price": 40,
+                "ratting": 4.2
+              },
+              "cucumber": {
+                "count": 1,
+                "name": "cucumber",
+                "price": 55,
+                "ratting": 4.2
+              },
+              "ladies_finger": {
+                "count": 2,
+                "name": "ladies_finger",
+                "price": 48,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFF533M67YcAeItiYm-",
+          "orderedTime": "2022-10-25T22:32:15.830296",
+          "pickupTime": "2022-10-25T22:41:00.000"
+        },
+        "-NFF5SZqMR1GIXDf1lH8": {
+          "collected": false,
+          "items": {
+            "Agro Grocery": {
+              "cauliflower": {
+                "count": 1,
+                "name": "cauliflower",
+                "price": 60,
+                "ratting": 4.2
+              },
+              "corn": {
+                "count": 1,
+                "name": "corn",
+                "price": 86,
+                "ratting": 4.2
+              }
+            },
+            "Groceries Are Us": {
+              "carrot": {
+                "count": 1,
+                "name": "carrot",
+                "price": 120,
+                "ratting": 4.2
+              }
+            },
+            "Naturally Gourmet Grocery": {
+              "apple": {
+                "count": 1,
+                "name": "apple",
+                "price": 240,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFF5SZqMR1GIXDf1lH8",
+          "orderedTime": "2022-10-25T22:34:00.310186",
+          "pickupTime": "2022-10-25T22:40:00.000"
+        },
+        "-NFHJT-s3bGgnFFRr5dq": {
+          "collected": false,
+          "items": {
+            "Agro Grocery": {
+              "watermelon": {
+                "count": 1,
+                "name": "watermelon",
+                "price": 18,
+                "ratting": 4.2
+              }
+            },
+            "Groceries Are Us": {
+              "cauliflower": {
+                "count": 1,
+                "name": "cauliflower",
+                "price": 60,
+                "ratting": 4.2
+              },
+              "watermelon": {
+                "count": 1,
+                "name": "watermelon",
+                "price": 18,
+                "ratting": 4.2
+              }
+            },
+            "Naturally Gourmet Grocery": {
+              "cauliflower": {
+                "count": 1,
+                "name": "cauliflower",
+                "price": 60,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFHJT-s3bGgnFFRr5dq",
+          "orderedTime": "2022-10-26T08:54:26.551914",
+          "pickupTime": "2022-10-26T10:57:00.000"
+        },
+        "-NFHhGBFTe5yZQDwGwc2": {
+          "collected": false,
+          "items": {
+            "Agro Grocery": {
+              "apple": {
+                "count": 1,
+                "name": "apple",
+                "price": 240,
+                "ratting": 4.2
+              }
+            },
+            "Naturally Gourmet Grocery": {
+              "apple": {
+                "count": 1,
+                "name": "apple",
+                "price": 240,
+                "ratting": 4.2
+              },
+              "brinjal": {
+                "count": 1,
+                "name": "brinjal",
+                "price": 65,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFHhGBFTe5yZQDwGwc2",
+          "orderedTime": "2022-10-26T10:42:47.631463",
+          "pickupTime": "2022-10-26T10:45:00.000"
+        },
+        "-NFI2B5BIqbq22ZeYufq": {
+          "collected": false,
+          "items": {
+            "Agro Grocery": {
+              "ladies_finger": {
+                "count": 2,
+                "name": "ladies_finger",
+                "price": 48,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFI2B5BIqbq22ZeYufq",
+          "orderedTime": "2022-10-26T12:18:33.932078",
+          "pickupTime": "2022-10-26T12:21:00.000"
+        },
+        "-NFJYd5h-xsXCXy8X6YQ": {
+          "collected": false,
+          "items": {
+            "Fresh Pickens": {
+              "ladies_finger": {
+                "count": 1,
+                "name": "ladies_finger",
+                "price": 48,
+                "ratting": 4.2
+              },
+              "watermelon": {
+                "count": 1,
+                "name": "watermelon",
+                "price": 18,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFJYd5h-xsXCXy8X6YQ",
+          "orderedTime": "2022-10-26T19:19:58.571126",
+          "pickupTime": "2022-10-26T19:19:57.070201"
+        }
+      }
+    },
+    "rz3LeJKErbMTdEzEqxpnrfH2Xtr2": {
+      "cart": {
+        "Agro Grocery": {
+          "cauliflower": {
+            "count": 1,
+            "name": "cauliflower",
+            "price": 60,
+            "ratting": 4.2
+          }
+        }
+      },
+      "orders": {
+        "-NFJWU4I0jHuIlgWpgFc": {
+          "collected": false,
+          "items": {
+            "Agro Grocery": {
+              "bannana": {
+                "count": 1,
+                "name": "bannana",
+                "price": 40,
+                "ratting": 4.2
+              },
+              "brinjal": {
+                "count": 1,
+                "name": "brinjal",
+                "price": 65,
+                "ratting": 4.2
+              },
+              "carrot": {
+                "count": 1,
+                "name": "carrot",
+                "price": 120,
+                "ratting": 4.2
+              }
+            },
+            "Groceries Are Us": {
+              "garlic": {
+                "count": 1,
+                "name": "garlic",
+                "price": 185,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NFJWU4I0jHuIlgWpgFc",
+          "orderedTime": "2022-10-26T19:10:33.234891",
+          "pickupTime": "2022-10-26T19:10:29.248886"
+        },
+        "-NG-nxRMRvNgOiTo3kGj": {
+          "collected": false,
+          "items": {
+            "Agro Grocery": {
+              "cauliflower": {
+                "count": 2,
+                "name": "cauliflower",
+                "price": 60,
+                "ratting": 4.2
+              },
+              "cucumber": {
+                "count": 1,
+                "name": "cucumber",
+                "price": 55,
+                "ratting": 4.2
+              },
+              "garlic": {
+                "count": 1,
+                "name": "garlic",
+                "price": 185,
+                "ratting": 4.2
+              }
+            },
+            "Naturally Gourmet Grocery": {
+              "apple": {
+                "count": 1,
+                "name": "apple",
+                "price": 240,
+                "ratting": 4.2
+              },
+              "carrot": {
+                "count": 1,
+                "name": "carrot",
+                "price": 120,
+                "ratting": 4.2
+              },
+              "cucumber": {
+                "count": 1,
+                "name": "cucumber",
+                "price": 55,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NG-nxRMRvNgOiTo3kGj",
+          "orderedTime": "2022-11-04T09:34:33.685723",
+          "pickupTime": "2022-11-04T14:34:00.000"
+        },
+        "-NHUGTcEIV9ALzVZxfcm": {
+          "collected": false,
+          "items": {
+            "Fresh Pickens": {
+              "carrot": {
+                "count": 1,
+                "name": "carrot",
+                "price": 120,
+                "ratting": 4.2
+              },
+              "garlic": {
+                "count": 1,
+                "name": "garlic",
+                "price": 185,
+                "ratting": 4.2
+              }
+            },
+            "The Pick 'n' Mix": {
+              "corn": {
+                "count": 1,
+                "name": "corn",
+                "price": 86,
+                "ratting": 4.2
+              },
+              "garlic": {
+                "count": 1,
+                "name": "garlic",
+                "price": 185,
+                "ratting": 4.2
+              }
+            }
+          },
+          "orderId": "-NHUGTcEIV9ALzVZxfcm",
+          "orderedTime": "2022-11-22T17:47:50.095157",
+          "pickupTime": "2022-11-22T17:51:00.000"
+        }
+      }
+    }
+  }
+}

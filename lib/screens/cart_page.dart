@@ -154,9 +154,7 @@ class _CartPageState extends State<CartPage> {
       },
       displayCloseIcon: false,
       pickerTextStyle: const TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 16,
-      ),
+          fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
       bottomPickerTheme: BottomPickerTheme.blue,
       dismissable: true,
       displayButtonIcon: false,
@@ -214,6 +212,20 @@ class _CartPageState extends State<CartPage> {
               ],
             ),
           ),
+          Expanded(
+            child: cartItems.isNotEmpty
+                ? ListView.builder(
+                    itemCount: cartItems.length,
+                    itemBuilder: (context, i) => storeWidget({
+                      cartItems.keys.elementAt(i): cartItems.values.elementAt(i)
+                    }),
+                  )
+                : Center(
+                    child: isCartItemsEmpty
+                        ? const Text("your cart is empty")
+                        : const CircularProgressIndicator(),
+                  ),
+          ),
           cartItems.isNotEmpty
               ? Container(
                   margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -262,61 +274,55 @@ class _CartPageState extends State<CartPage> {
                   ),
                 )
               : const SizedBox.shrink(),
-          Expanded(
-            child: cartItems.isNotEmpty
-                ? ListView.builder(
-                    itemCount: cartItems.length,
-                    itemBuilder: (context, i) => storeWidget({
-                      cartItems.keys.elementAt(i): cartItems.values.elementAt(i)
-                    }),
-                  )
-                : Center(
-                    child: isCartItemsEmpty
-                        ? const Text("your cart is empty")
-                        : const CircularProgressIndicator(),
-                  ),
-          ),
         ],
       ),
     );
   }
 
   Widget storeWidget(Map<String, dynamic> store) {
-    return Column(
-      children: [
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin:
-                const EdgeInsets.only(top: 5, bottom: 5, left: 5, right: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  store.keys.first,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 20),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        elevation: 7,
+        shadowColor: const Color.fromARGB(50, 12, 4, 4),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                margin: const EdgeInsets.only(
+                    top: 10, bottom: 5, left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      store.keys.first,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    Text(
+                      "₹${getTotalItemPrice(store)}",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  "₹${getTotalItemPrice(store)}",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+            ...(store.values.first as Map<String, dynamic>)
+                .values
+                .map((e) => ItemStyleCart(
+                      item: Item.map(e),
+                      storeName: store.keys.first,
+                      deleteItem: deleteItem,
+                    ))
+                .toList(),
+          ],
         ),
-        ...(store.values.first as Map<String, dynamic>)
-            .values
-            .map((e) => ItemStyleCart(
-                  item: Item.map(e),
-                  storeName: store.keys.first,
-                  deleteItem: deleteItem,
-                ))
-            .toList(),
-      ],
+      ),
     );
   }
 }

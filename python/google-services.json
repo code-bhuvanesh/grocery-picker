@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "grocerypicker-862b3",
+  "private_key_id": "81b59455dafc89a11d8e403df88a51f14c1dbc05",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDYeh3utkxtSalk\n/1bm74XWxE0gZz6SPdVeMRQNguSl3ksY+VawkDmyKh17SXsT8n003kfehlIeHlao\n6K2/7wGFnlhzm//IThnav1jlHBpfvQboaIXw9c6vwxQoy4jOM2/HTCD8SR2umG4l\ndnyctbQtPxbnuqUKuxNZMJfQUPUjUakmyahwrTZEZ9uwZmA221a90YXBK62yx3ph\ngPtdJuX4LF2hGUO6gEQrztNWfUJcqkb04I6BSCyA0HPqucTjeMsq1Kqu/hm602W5\nHl7RxYC9EzcRP//h5QxXmezCYGw7asZusANU4aDfKozb2r4FZKIzDKf8abxWpp+O\nq3LLzwB1AgMBAAECggEAB7b8AucQSWmX1d4CGzzSCKaT5EgjQyCQNOK+4JrKynZ/\nndluk3njjhi3vQ5DV24+50SjGKhLNbOTFw+KK0FTTPXCftKo01sLmAlVtUr150LC\ng90MJcHWc3RNiNHbUEeMMw56TN0DAWPnspuxMsyIkH9wS4kSGxQyF+2fzqONkowx\nR0K0lfYxWHW8+Xen7CXO7zSbaCFs3Zz0MGLDpnFkG5sRlRLXyf4lorPN9SyF6xeb\nCRYnKr0+R2zj4TJSiazPILKRcv+J3/zva0toGORGMLfwP7KppBEc5HscBZ7JeqPJ\n+JlA+P6eQS2Bi90jJDyTMpnKsX6YLfdZ/HI4sLo/gQKBgQD3nCvk0vEkhCK5gZWE\nLNE3FYPSDPhxIDAq0gqBwYDBktQ9Q4et/KwagzO64LWcbgZnFajASj6PHAOsrGXd\n3IK6b0dne3XzkScXIve6qBn1zh1bLUu7xnpzGXtBWhMlqouzNiFIyrKZNJjsSmDn\n/p+4be7+B/eGpSPjhnxJq8qRZQKBgQDfz+Pi2NZoRQouw+asLx3SeFh20Al5+ICT\n8Lvf7+OX/RZ+nNTgk+v3aLM5f4xL4HF8GMkHrudOOjtLmKqQyb12rZlkFlsGx3ae\ny1RvsZY/dVNQa+ZDztPZNeCIVzO55G3OICJaA4rgOtbGsXNH6Wzk8yyapOezgWwd\n3j9YgM7J0QKBgQCxPtDI5xsJObElu5YM3IwS80q+VNyPFiyEqoAs7Bg/+NwG0s1Q\nBXwpKlwgXPSD+tqIdh+rLjpj9PjIZUwyKcRGspuZfu4rIW+rBzPwIJ8crqOi/eSl\nkOlcdRQe7tyf7No9ufTPh5GbS+Rf2MpPp5wryD35CDju4E21dDKKBfhmZQKBgBkn\nvo9Sm9agW+Khth2INivfxuGjxEznN1xpZFRpHAWLNqoIaozLU2w9YleGFHi6w0aV\napLof6r1NJDsmc8oPZlHLcRoFtcOODDk3ZqoNSDwyOpzFjBs4La7LX9lfbTZDdZr\nGjFP0J4fPuCaNUDR5aFeC5deDYTJeSNqRWhnIdbhAoGBAOpt9/1NJOP9ZWhMZ3/m\nVAPGy8jSm+tvr4P3p4JzoEIfgjKtgTO2s5Ba0/6btel7JPB4RRiDDBhrqutINaIa\ne784LW3lqi67gJeRu3uANfwH7eFlfbEJWFerWOReprakaxWrW5/M1JcPO4VuqOsF\naC2i88YmJb/JJqu+mUwqSza0\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-mci8s@grocerypicker-862b3.iam.gserviceaccount.com",
+  "client_id": "101566732407441047551",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-mci8s%40grocerypicker-862b3.iam.gserviceaccount.com"
+}

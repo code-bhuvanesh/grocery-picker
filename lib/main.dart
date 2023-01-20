@@ -1,13 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:grocery_picker/screens/mainPage.dart';
-import 'package:grocery_picker/screens/searchPage.dart';
-import 'package:grocery_picker/screens/settingsPage.dart';
+import 'package:grocery_picker/screens/main_age.dart';
+import 'package:grocery_picker/screens/search_page.dart';
+import 'package:grocery_picker/screens/settings_page.dart';
 import 'package:grocery_picker/screens/shop_page.dart';
 
 import 'firebase_options.dart';
-import 'screens/loginPage.dart';
+import 'screens/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
