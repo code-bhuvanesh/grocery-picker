@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../models/item.dart';
+import '../models/item.dart'; 
 import '../widgets/item_style_cart.dart';
 
 class CartPage extends StatefulWidget {
