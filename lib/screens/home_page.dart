@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void loadItems(String? seachText) async {
-    double storeRadius = 2.0;
+    double storeRadius = 3.0;
     debugPrint("on changed $seachText");
     isItemsLoaded = false;
     late QuerySnapshot snapShot;
