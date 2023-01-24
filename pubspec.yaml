@@ -50,6 +50,7 @@ dependencies:
   bottom_picker: ^2.0.1
   intl: ^0.17.0
   cloud_firestore: ^3.5.1
+  geoflutterfire: ^3.0.2
 
 dev_dependencies:
   flutter_test:

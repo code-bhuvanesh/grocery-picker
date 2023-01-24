@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:grocery_picker/screens/search_page.dart';
 import 'package:grocery_picker/screens/settings_page.dart';
@@ -14,6 +15,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 import '../models/Store.dart';
 import '../models/item.dart';
+import '../utilities/upload_dummy_data.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -27,45 +29,70 @@ class _HomePageState extends State<HomePage> {
   late Reference storageRef;
 
   Map<String, dynamic> items = {};
+  var isItemsLoaded = false;
   @override
   void initState() {
     ref = database.ref();
     storageRef = FirebaseStorage.instance.ref();
     // custom();
-    loadItems(null);
     getGeoLoaction();
+    // loadItems(null);
     super.initState();
   }
 
   void loadItems(String? seachText) async {
-    print("on changed $seachText");
+    double storeRadius = 2.0;
+    debugPrint("on changed $seachText");
+    isItemsLoaded = false;
     late QuerySnapshot snapShot;
-    // if (seachText == null || seachText.isEmpty) {
-    // snapShot = await FirebaseFirestore.instance
-    //     .collection("stores")
-    //     .doc("stores")
-    //     .get();
-    snapShot =
-        await FirebaseFirestore.instance.collection("stores").limit(20).get();
-    // } else {
-    snapShot = await FirebaseFirestore.instance
-        .collection("stores")
-        .where("name", isEqualTo: seachText)
-        .get();
-    // print(snapShot1.docs);
-    // print(snapShot1.docs);
-    // .doc("stores").
-    // .get();
-    // }
-    // print("item .............");
-    // print(snapShot.data());
-    items.clear();
-    for (var i in snapShot.docs) {
+    late List<DocumentSnapshot<Object?>>? snapShot1 = null;
+    if (seachText == null || seachText.isEmpty) {
+      var collection = FirebaseFirestore.instance.collection("stores");
+      snapShot = await collection.get();
+      if (myPosition != null) {
+        snapShot1 = await Geoflutterfire()
+            .collection(collectionRef: collection)
+            .within(center: myPosition!, radius: storeRadius, field: "location")
+            .first;
+        debugPrint("length : ${snapShot1.length}");
+      }
+    } else {
+      seachText = seachText.toLowerCase();
+      snapShot = await FirebaseFirestore.instance
+          .collection("stores")
+          .where("searchCase", arrayContains: seachText)
+          .get();
+    }
+    setState(() {
+      items.clear();
+    });
+    snapShot.docs.shuffle();
+    List<dynamic> docs = snapShot.docs;
+    if (snapShot1 != null) {
+      docs = snapShot1;
+      // debugPrint("my ${myPosition!.latitude},${myPosition!.longitude}");
+      for (var i in docs) {
+        if (i.exists) {
+          // debugPrint("data");
+          // debugPrint(i.data());
+        }
+      }
+    }
+    for (var i in docs) {
       if (i.exists) {
         var data = i.data() as dynamic;
         var shopName = data["name"] as String;
         var map = {shopName: data};
-
+        var geo = data["location"]["geopoint"] as GeoPoint;
+        // debugPrint(
+        //     "distance ${(await Geolocator.distanceBetween(myPosition!.latitude, myPosition!.longitude, geo.latitude, geo.longitude) / 1000) * 0.621371}");
+        var distance = GeoFirePoint.distanceBetween(
+            to: Coordinates(myPosition!.latitude, myPosition!.longitude),
+            from: Coordinates(geo.latitude, geo.longitude));
+        if (distance > storeRadius) {
+          continue;
+        }
+        debugPrint("$shopName : $distance");
         if (mounted) {
           setState(() {
             items.addAll(map);
@@ -73,6 +100,7 @@ class _HomePageState extends State<HomePage> {
         }
       }
     }
+    isItemsLoaded = true;
   }
 
   Future<String> getDownloadUrl(String imageName) async {
@@ -94,6 +122,8 @@ class _HomePageState extends State<HomePage> {
   var yourLocality = "Enable";
   var yourCity = "Location";
 
+  GeoFirePoint? myPosition;
+
   Future<void> getGeoLoaction() async {
     bool serviceStatus = await Geolocator.isLocationServiceEnabled();
     if (serviceStatus) {
@@ -106,22 +136,25 @@ class _HomePageState extends State<HomePage> {
         permission = await Geolocator.checkPermission();
         if (permission == LocationPermission.denied) {
           toastMsg('Location permissions are denied');
-          print('Location permissions are denied');
+          debugPrint('Location permissions are denied');
         } else if (permission == LocationPermission.deniedForever) {
           toastMsg("'Location permissions are permanently denied");
-          print("'Location permissions are permanently denied");
+          debugPrint("'Location permissions are permanently denied");
         }
       }
-      print("location permission : ${LocationPermission.denied}");
+      debugPrint("location permission : ${LocationPermission.denied}");
       if (permission != LocationPermission.denied) {
         Position position = await Geolocator.getCurrentPosition(
-            desiredAccuracy: LocationAccuracy.bestForNavigation);
+            desiredAccuracy: LocationAccuracy.best);
         List<Placemark> placemarks = await placemarkFromCoordinates(
             position.latitude, position.longitude);
         if (mounted) {
+          loadItems(null);
           setState(() {
-            // print(
+            // debugPrint(
             //     "${placemarks.first.subLocality}, ${placemarks.first.locality}");
+            myPosition = Geoflutterfire().point(
+                latitude: position.latitude, longitude: position.longitude);
             yourLocality = placemarks.first.subLocality.toString();
             yourCity = placemarks.first.locality.toString();
           });
@@ -129,7 +162,7 @@ class _HomePageState extends State<HomePage> {
       }
     } else {
       toastMsg("loaction service is disabled");
-      print("loaction service is disabled");
+      debugPrint("loaction service is disabled");
     }
   }
 
@@ -166,6 +199,7 @@ class _HomePageState extends State<HomePage> {
 
   late double screenWidth;
   late double screenheight;
+
   static const searchFieldBorder = OutlineInputBorder(
       borderSide: BorderSide(
         color: Color.fromARGB(255, 245, 245, 245),
@@ -175,6 +209,8 @@ class _HomePageState extends State<HomePage> {
       borderRadius: BorderRadius.all(Radius.circular(50)));
   @override
   Widget build(BuildContext context) {
+    // setLocation();
+
     var topPadding = MediaQuery.of(context).viewPadding.top;
     screenWidth = MediaQuery.of(context).size.width;
     screenheight = MediaQuery.of(context).size.height - topPadding;
@@ -235,8 +271,13 @@ class _HomePageState extends State<HomePage> {
                       padding: EdgeInsets.all(10),
                       alignment: Alignment.centerLeft,
                       child: GestureDetector(
-                        onTap: (() => Navigator.of(context)
-                            .pushNamed(SettingsPage.routeName)),
+                        onTap: (() {
+                          Navigator.of(context)
+                              .pushNamed(SettingsPage.routeName);
+                          // loadItems(null);
+                          // showToast("");
+                          // setLocation();
+                        }),
                         child: Card(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30)),
@@ -286,20 +327,23 @@ class _HomePageState extends State<HomePage> {
             ]),
           ),
           Expanded(
-            child: items.isEmpty
+            child: !isItemsLoaded
                 ? const Center(
                     child: CircularProgressIndicator(),
                   )
                 : Container(
                     margin: const EdgeInsets.only(left: 5, right: 5),
-                    child: ListView.builder(
-                      itemCount: items.length,
-                      itemBuilder: ((context, i) => storeWidget(
-                            Store.fromMap(
-                              items.values.elementAt(i),
-                            ),
-                          )),
-                    )),
+                    child: (items.isNotEmpty)
+                        ? ListView.builder(
+                            itemCount: items.length,
+                            itemBuilder: ((context, i) => storeWidget(
+                                  Store.fromMap(
+                                    items.values.elementAt(i),
+                                  ),
+                                )),
+                          )
+                        : Center(child: const Text("no results")),
+                  ),
           ),
         ],
       ),
@@ -307,7 +351,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget storeWidget(Store store) {
-    store.items.shuffle();
+    // store.items.shuffle();
     return SizedBox(
       height: screenheight / 4,
       child: Column(

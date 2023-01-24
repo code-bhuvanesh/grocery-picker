@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:geocoding/geocoding.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
 
 import 'item.dart';
 
@@ -8,15 +7,13 @@ class Store {
   final String name;
   final List<Item> items;
   final String locality;
-  final double latitude;
-  final double longitude;
+  final dynamic location;
   final String address;
   const Store({
     required this.name,
     required this.items,
     required this.locality,
-    required this.latitude,
-    required this.longitude,
+    required this.location,
     required this.address,
   });
 
@@ -25,8 +22,7 @@ class Store {
       "name": name,
       "items": {for (var v in items) v.name: v.toMap()},
       "lolity": locality,
-      "latitude": latitude,
-      "longitude": longitude,
+      "location": location,
       "address": address,
     };
   }
@@ -39,7 +35,6 @@ class Store {
             .map((e) => Item.map(e.value as Map<String, dynamic>))
             .toList(),
         locality = storeMap["locality"],
-        latitude = storeMap["latitude"],
-        longitude = storeMap["longitude"],
+        location = storeMap["location"],
         address = storeMap["address"];
 }

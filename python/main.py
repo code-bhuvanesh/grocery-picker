@@ -1,12 +1,14 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
 import json
+import random
+
 
 cred = credentials.Certificate("E:\Projects\\flutterApp\grocery_picker\python\google-services.json")
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
-collection = db.collection("groceryPicker")
+# collection = db.collection("groceryPicker")
 
 
 dat = {}
@@ -28,10 +30,35 @@ with open("E:\Projects\\flutterApp\grocery_picker\python\grocerypicker.json") as
 
 
 
+def shuffle_dict(dictToShuffle):
+    keys = list(dictToShuffle.keys())
+    random.shuffle(keys)
+
+    ShuffledDict = dict()
+    for key in keys:
+        ShuffledDict.update({key: dictToShuffle[key]})
+
+    return ShuffledDict
+
+
 col = db.collection("stores")
 
+def setSearchParam(name):
+  caseSearchList = list()
+  temp = ""
+  for i in name:
+    temp = temp + i
+    caseSearchList.append(temp)
+  return caseSearchList
+
+
 for i in data["stores"]:
-    col.document(i).set(data["stores"][i]);
+    data["stores"][i]["searchCase"] = setSearchParam(i.lower())
+    print(data["stores"][i]["items"])
+    print("  ")
+    data["stores"][i]["items"] = shuffle_dict(data["stores"][i]["items"])
+    print(data["stores"][i]["items"])
+    col.document(i).set(data["stores"][i])
 
 
 

@@ -5,6 +5,7 @@ import 'package:grocery_picker/screens/main_age.dart';
 import 'package:grocery_picker/screens/search_page.dart';
 import 'package:grocery_picker/screens/settings_page.dart';
 import 'package:grocery_picker/screens/shop_page.dart';
+import 'package:grocery_picker/utilities/upload_dummy_data.dart';
 
 import 'firebase_options.dart';
 import 'screens/login_page.dart';
