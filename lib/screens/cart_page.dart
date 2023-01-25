@@ -2,13 +2,14 @@ import 'dart:convert';
 
 import 'package:bottom_picker/bottom_picker.dart';
 import 'package:bottom_picker/resources/arrays.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../models/item.dart'; 
+import '../models/item.dart';
 import '../widgets/item_style_cart.dart';
 
 class CartPage extends StatefulWidget {
@@ -21,6 +22,7 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   static var UID = FirebaseAuth.instance.currentUser?.uid;
   var ref = FirebaseDatabase.instance.ref("users/$UID");
+  var firestore = FirebaseFirestore.instance;
   late double screenWidth;
   late double screenheight;
   Map<String, dynamic> cartItems = {};
@@ -135,6 +137,19 @@ class _CartPageState extends State<CartPage> {
     });
     await ref.child("cart").set({});
     showToast("order placed");
+  }
+
+  Future<double?> FindHighestPrice(String itemName) async {
+    print("highest page");
+    print(itemName);
+    var maxPrice = 0.0;
+    var snapshot = await firestore
+        .collection("stores")
+        .where("items.name", isEqualTo: itemName)
+        .get();
+    for (var i in snapshot.docs) {
+      print(i.data());
+    }
   }
 
   void _openDateTimePickerWithCustomButton(BuildContext context) {

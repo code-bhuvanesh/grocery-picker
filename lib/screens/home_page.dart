@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   FirebaseDatabase database = FirebaseDatabase.instance;
   late DatabaseReference ref;
   late Reference storageRef;
+  var firestore = FirebaseFirestore.instance;
 
   Map<String, dynamic> items = {};
   var isItemsLoaded = false;
@@ -40,65 +41,79 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  void getGeoLoaction() async {
+    var pos = await getPosition();
+    var loc = await getLocality();
+    var city = await getCity();
+    if (mounted) {
+      setState(() {
+        myPosition = pos;
+        yourLocality = loc;
+        yourCity = city;
+      });
+
+      loadItems(null);
+    }
+  }
+
+  double storeRadius = 3.0;
+
   void loadItems(String? seachText) async {
-    double storeRadius = 3.0;
     debugPrint("on changed $seachText");
     isItemsLoaded = false;
-    late QuerySnapshot snapShot;
-    late List<DocumentSnapshot<Object?>>? snapShot1 = null;
+    QuerySnapshot? snapShot;
+    List<DocumentSnapshot<Object?>>? snapShot1;
+    CollectionReference colRef;
+    List<dynamic>? docs;
     if (seachText == null || seachText.isEmpty) {
-      var collection = FirebaseFirestore.instance.collection("stores");
-      snapShot = await collection.get();
+      colRef = firestore.collection("stores");
+      storeRadius = 3.0;
       if (myPosition != null) {
         snapShot1 = await Geoflutterfire()
-            .collection(collectionRef: collection)
+            .collection(collectionRef: colRef)
             .within(center: myPosition!, radius: storeRadius, field: "location")
             .first;
-        debugPrint("length : ${snapShot1.length}");
+      } else {
+        snapShot = await colRef.get();
       }
     } else {
       seachText = seachText.toLowerCase();
-      snapShot = await FirebaseFirestore.instance
+      snapShot = await firestore
           .collection("stores")
           .where("searchCase", arrayContains: seachText)
+          .limit(30)
           .get();
     }
+
     setState(() {
       items.clear();
     });
-    snapShot.docs.shuffle();
-    List<dynamic> docs = snapShot.docs;
-    if (snapShot1 != null) {
+    // snapShot.docs.shuffle();
+    if (snapShot != null) {
+      docs = snapShot.docs;
+      // docs.removeWhere(
+      //     (element) => checkDist(element.data()["location"]["geopoint"], 10.0));
+    } else if (snapShot1 != null) {
       docs = snapShot1;
-      // debugPrint("my ${myPosition!.latitude},${myPosition!.longitude}");
-      for (var i in docs) {
-        if (i.exists) {
-          // debugPrint("data");
-          // debugPrint(i.data());
-        }
-      }
+      docs.removeWhere((element) =>
+          checkDist(myPosition!, element.data()["location"]["geopoint"], 3.0));
     }
-    for (var i in docs) {
+    for (var i in docs!) {
       if (i.exists) {
         var data = i.data() as dynamic;
         var shopName = data["name"] as String;
         var map = {shopName: data};
-        var geo = data["location"]["geopoint"] as GeoPoint;
-        // debugPrint(
-        //     "distance ${(await Geolocator.distanceBetween(myPosition!.latitude, myPosition!.longitude, geo.latitude, geo.longitude) / 1000) * 0.621371}");
-        var distance = GeoFirePoint.distanceBetween(
-            to: Coordinates(myPosition!.latitude, myPosition!.longitude),
-            from: Coordinates(geo.latitude, geo.longitude));
-        if (distance > storeRadius) {
-          continue;
-        }
-        debugPrint("$shopName : $distance");
         if (mounted) {
           setState(() {
             items.addAll(map);
           });
         }
       }
+    }
+    if (mounted) {
+      setState(() {
+        items = items;
+      });
     }
     isItemsLoaded = true;
   }
@@ -109,72 +124,10 @@ class _HomePageState extends State<HomePage> {
     return storageRef.child("$imageName.jpg").getDownloadURL();
   }
 
-  void toastMsg(String msg) {
-    Fluttertoast.showToast(
-        msg: msg,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Color.fromARGB(255, 54, 54, 54),
-        timeInSecForIosWeb: 1,
-        fontSize: 16.0);
-  }
-
   var yourLocality = "Enable";
   var yourCity = "Location";
 
   GeoFirePoint? myPosition;
-
-  Future<void> getGeoLoaction() async {
-    bool serviceStatus = await Geolocator.isLocationServiceEnabled();
-    if (serviceStatus) {
-      LocationPermission permission = await Geolocator.checkPermission();
-
-      if (permission == LocationPermission.denied) {
-        Map<Permission, PermissionStatus> statuses = await [
-          Permission.location,
-        ].request();
-        permission = await Geolocator.checkPermission();
-        if (permission == LocationPermission.denied) {
-          toastMsg('Location permissions are denied');
-          debugPrint('Location permissions are denied');
-        } else if (permission == LocationPermission.deniedForever) {
-          toastMsg("'Location permissions are permanently denied");
-          debugPrint("'Location permissions are permanently denied");
-        }
-      }
-      debugPrint("location permission : ${LocationPermission.denied}");
-      if (permission != LocationPermission.denied) {
-        Position position = await Geolocator.getCurrentPosition(
-            desiredAccuracy: LocationAccuracy.best);
-        List<Placemark> placemarks = await placemarkFromCoordinates(
-            position.latitude, position.longitude);
-        if (mounted) {
-          loadItems(null);
-          setState(() {
-            // debugPrint(
-            //     "${placemarks.first.subLocality}, ${placemarks.first.locality}");
-            myPosition = Geoflutterfire().point(
-                latitude: position.latitude, longitude: position.longitude);
-            yourLocality = placemarks.first.subLocality.toString();
-            yourCity = placemarks.first.locality.toString();
-          });
-        }
-      }
-    } else {
-      toastMsg("loaction service is disabled");
-      debugPrint("loaction service is disabled");
-    }
-  }
-
-  void showToast(String msg) {
-    Fluttertoast.showToast(
-        msg: msg,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Color.fromARGB(255, 54, 54, 54),
-        timeInSecForIosWeb: 1,
-        fontSize: 16.0);
-  }
 
   void addToCart(Store store, Item item) {
     var userRef = ref
@@ -231,68 +184,65 @@ class _HomePageState extends State<HomePage> {
                     bottomRight: Radius.circular(20))),
             color: Colors.green,
             child: Column(children: [
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: getGeoLoaction,
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 10),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.location_pin,
-                              color: Colors.white,
-                              size: 25,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: getGeoLoaction,
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 10),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.location_pin,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(left: 5),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  yourLocality,
+                                  style: loactionTextStyle(24),
+                                ),
+                                Text(
+                                  yourCity,
+                                  style: loactionTextStyle(20),
+                                ),
+                              ],
                             ),
-                            Container(
-                              margin: const EdgeInsets.only(left: 5),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    yourLocality,
-                                    style: loactionTextStyle(24),
-                                  ),
-                                  Text(
-                                    yourCity,
-                                    style: loactionTextStyle(20),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      alignment: Alignment.centerLeft,
-                      child: GestureDetector(
-                        onTap: (() {
-                          Navigator.of(context)
-                              .pushNamed(SettingsPage.routeName);
-                          // loadItems(null);
-                          // showToast("");
-                          // setLocation();
-                        }),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)),
-                          child: const Padding(
-                            padding: EdgeInsets.all(3),
-                            child: Icon(
-                              Icons.person,
-                              size: 30,
-                            ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    alignment: Alignment.centerLeft,
+                    child: GestureDetector(
+                      onTap: (() {
+                        Navigator.of(context).pushNamed(SettingsPage.routeName);
+                        // loadItems(null);
+                        // showToast("");
+                        // setLocation();
+                      }),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        child: const Padding(
+                          padding: EdgeInsets.all(3),
+                          child: Icon(
+                            Icons.person,
+                            size: 30,
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Container(
                 margin:
@@ -501,3 +451,106 @@ extension on String {
 }
 
 enum PermissionGroup { locationAlways, locationWhenInUse }
+
+void showToast(String msg) {
+  Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: Color.fromARGB(255, 54, 54, 54),
+      timeInSecForIosWeb: 1,
+      fontSize: 16.0);
+}
+
+void toastMsg(String msg) {
+  Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: Color.fromARGB(255, 54, 54, 54),
+      timeInSecForIosWeb: 1,
+      fontSize: 16.0);
+}
+
+Future<GeoFirePoint?> getPosition() async {
+  bool serviceStatus = await Geolocator.isLocationServiceEnabled();
+  if (serviceStatus) {
+    LocationPermission permission = await Geolocator.checkPermission();
+
+    if (permission != LocationPermission.always ||
+        permission != LocationPermission.whileInUse) {
+      Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.best);
+
+      return Geoflutterfire()
+          .point(latitude: position.latitude, longitude: position.longitude);
+    } else {
+      toastMsg('Location permissions are denied');
+      debugPrint('Location permissions are denied');
+    }
+  } else {
+    toastMsg("loaction service is disabled");
+    debugPrint("loaction service is disabled");
+    return null;
+  }
+}
+
+Future<String> getLocality() async {
+  bool serviceStatus = await Geolocator.isLocationServiceEnabled();
+  if (serviceStatus) {
+    LocationPermission permission = await Geolocator.checkPermission();
+
+    if (permission != LocationPermission.denied ||
+        permission != LocationPermission.whileInUse) {
+      Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.best);
+      List<Placemark> placemarks =
+          await placemarkFromCoordinates(position.latitude, position.longitude);
+
+      return placemarks.first.subLocality.toString();
+    } else {
+      toastMsg('Location permissions are denied');
+      debugPrint('Location permissions are denied');
+    }
+  } else {
+    toastMsg("loaction service is disabled");
+    debugPrint("loaction service is disabled");
+  }
+
+  return "Enable";
+}
+
+Future<String> getCity() async {
+  bool serviceStatus = await Geolocator.isLocationServiceEnabled();
+  if (serviceStatus) {
+    LocationPermission permission = await Geolocator.checkPermission();
+
+    if (permission != LocationPermission.denied ||
+        permission != LocationPermission.whileInUse) {
+      Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.best);
+      List<Placemark> placemarks =
+          await placemarkFromCoordinates(position.latitude, position.longitude);
+
+      return placemarks.first.locality.toString();
+    } else {
+      toastMsg('Location permissions are denied');
+      debugPrint('Location permissions are denied');
+    }
+  } else {
+    toastMsg("loaction service is disabled");
+    debugPrint("loaction service is disabled");
+  }
+
+  return "Location";
+}
+
+bool checkDist(GeoFirePoint myPosition, GeoPoint geo, double radius) {
+  var distance = GeoFirePoint.distanceBetween(
+      to: Coordinates(myPosition.latitude, myPosition.longitude),
+      from: Coordinates(geo.latitude, geo.longitude));
+  if (distance > radius) {
+    return false;
+  }
+  return true;
+}

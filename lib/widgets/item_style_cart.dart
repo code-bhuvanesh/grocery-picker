@@ -1,8 +1,14 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
+import 'package:grocery_picker/screens/home_page.dart';
 
 import '../models/item.dart';
 import 'item_counter.dart';
@@ -28,6 +34,37 @@ class ItemStyleCart extends StatelessWidget {
     return storageRef.child("$imageName.jpg").getDownloadURL();
   }
 
+  var firestore = FirebaseFirestore.instance;
+
+  Future<double> findPiceYourSave() async {
+    debugPrint("highest page");
+    debugPrint(item.name);
+    var maxPrice = 0.0;
+    var coll = firestore.collection("stores");
+    var myPosition = await getPosition();
+    if (myPosition != null) {
+      var snapshot = await Geoflutterfire()
+          .collection(collectionRef: coll)
+          .within(center: myPosition, radius: 3.0, field: "location")
+          .first;
+      debugPrint("fhp length1 ${snapshot.length}");
+      snapshot.removeWhere((element) => checkDist(
+          myPosition,
+          (element.data() as Map<String, dynamic>)["location"]["geopoint"],
+          3.0));
+      debugPrint("fhp length2 ${snapshot.length}");
+      for (var i in snapshot) {
+        var price =
+            (i.data() as Map<String, dynamic>)["items"][item.name]["price"];
+        maxPrice = max(maxPrice, price.toDouble());
+        debugPrint("maxPrice = ${(i.data() as Map<String, dynamic>)["name"]}");
+      }
+      return maxPrice - item.price;
+    }
+
+    return 0.0;
+  }
+ //check why here and home pages shops are different
   @override
   Widget build(BuildContext context) {
     var downloadUrl =
@@ -107,6 +144,27 @@ class ItemStyleCart extends StatelessWidget {
                                     ),
                                   ],
                                 ),
+                              ),
+                              FutureBuilder(
+                                builder: (context, savePrice) =>
+                                    (savePrice.data != 0.0 &&
+                                            savePrice.connectionState ==
+                                                ConnectionState.done)
+                                        ? Container(
+                                            margin: const EdgeInsets.symmetric(
+                                                horizontal: 6),
+                                            child: Row(
+                                              children: [
+                                                Text(
+                                                  "you save ₹${savePrice.data}",
+                                                  style: const TextStyle(
+                                                      color: Colors.grey),
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        : const SizedBox.shrink(),
+                                future: findPiceYourSave(),
                               )
                             ],
                           ),
