@@ -1,11 +1,7 @@
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:geoflutterfire/geoflutterfire.dart';
-import 'package:grocery_picker/models/Store.dart';
-
-import '../models/item.dart';
+import 'package:geoflutterfire2/geoflutterfire2.dart';
 
 // List<Map<String, dynamic>> groceryItems = [
 //   {
@@ -81,7 +77,7 @@ import '../models/item.dart';
 // //     const Item(
 // //         name: "garlic", prePrice: [20, 1, 11, 2, 2], price: 43.2, ratting: 4.1),
 // //   ];
-// //   var store = Store(
+// //   var shop = Shop(
 // //       name: "murugan",
 // //       items: items,
 // //       loaclity: "chennai",
@@ -89,7 +85,7 @@ import '../models/item.dart';
 // //       longitude: 21.2,
 // //       address: "address");
 // //   await ref.child(store.name).set(store.toMap());
-// //   print("uploaded to firebase");
+// //   debugPrint("uploaded to firebase");
 // // }
 
 // var latRange = 0.0172;
@@ -131,10 +127,10 @@ import '../models/item.dart';
 //     }));
 //   });
 
-//   print(
+//   debugPrint(
 //       "shops list : ///////////////////////////////////////////////////////////////////////");
 //   shopsList.forEach((element) {
-//     print(element.toMap());
+//     debugPrint(element.toMap());
 //     ref.child("stores").child(element.toMap()["name"]).set(element.toMap());
 //   });
 // }
@@ -143,7 +139,7 @@ import '../models/item.dart';
 //   return Random().nextDouble() * max;
 // }
 
-final geo = Geoflutterfire();
+final geo = GeoFlutterFire();
 //12.9055917,80.2303483
 Future<void> setLocation() async {
   var already1 = [];

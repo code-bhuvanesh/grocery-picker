@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:grocery_picker/screens/main_age.dart';
+import 'package:grocery_picker/screens/buyer_screens/buyer_main_page.dart';
+import 'package:grocery_picker/screens/splash_screen.dart';
+import 'package:grocery_picker/widgets/custom_button.dart';
 
 import '../widgets/login_input_field.dart';
 import '../widgets/toggle_button.dart';
@@ -22,6 +26,8 @@ class _LoginPageState extends State<LoginPage> {
   final emailTextController = TextEditingController();
   final usernameTextController = TextEditingController();
   final passwordTextController = TextEditingController();
+
+  late StreamSubscription<User?> _listener;
 
   void onToggle(String state) {
     setState(() {
@@ -44,19 +50,20 @@ class _LoginPageState extends State<LoginPage> {
                 email: emailTextController.text,
                 password: passwordTextController.text);
         var user = userCredentials.user;
-        print(user?.uid);
-        FirebaseAuth.instance.authStateChanges().listen((User? user) {
+        debugPrint(user?.uid);
+        _listener =
+            FirebaseAuth.instance.authStateChanges().listen((User? user) {
           if (user == null) {
-            print('User is currently signed out!');
+            debugPrint('User is currently signed out!');
             loginProgress = false;
           } else {
-            print('User is signed in!');
-            Navigator.popAndPushNamed(context, MainPage.routeName);
+            debugPrint('User is signed in!');
+            Navigator.popAndPushNamed(context, SplashScreen.routeName);
           }
         });
       } on FirebaseAuthException catch (e) {
         loginProgress = false;
-        print(e.code);
+        debugPrint(e.code);
         var error = "";
         if (e.code == 'invalid-email') {
           error = 'email entered not found!';
@@ -72,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
             fontSize: 16.0);
       } catch (e) {
         loginProgress = false;
-        print(e);
+        debugPrint(e.toString());
       }
     }
   }
@@ -88,18 +95,19 @@ class _LoginPageState extends State<LoginPage> {
           email: emailTextController.text,
           password: passwordTextController.text,
         );
-        FirebaseAuth.instance.authStateChanges().listen((User? user) {
+        _listener =
+            FirebaseAuth.instance.authStateChanges().listen((User? user) {
           if (user == null) {
-            print('User is currently signed out!');
+            debugPrint('User is currently signed out!');
           } else {
-            print('User is signed in!');
+            debugPrint('User is signed in!');
             user.updateDisplayName(usernameTextController.text);
-            Navigator.popAndPushNamed(context, MainPage.routeName);
+            Navigator.popAndPushNamed(context, SplashScreen.routeName);
           }
         });
       } on FirebaseAuthException catch (e) {
         loginProgress = false;
-        print("error : ... ${e.code}");
+        debugPrint("error : ... ${e.code}");
         var error = "";
         if (e.code == 'weak-password') {
           error = 'The password provided is too weak.';
@@ -117,9 +125,15 @@ class _LoginPageState extends State<LoginPage> {
         }
       } catch (e) {
         loginProgress = false;
-        print(e);
+        debugPrint(e.toString());
       }
     }
+  }
+
+  @override
+  void dispose() {
+    _listener.cancel();
+    super.dispose();
   }
 
   var loginProgress = false;
@@ -131,18 +145,19 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(children: [
         SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(0, topPadding, 0, 0),
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Text(
-                  "Grocery\n        Picker",
-                  style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 46,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "autumn_in_november"),
-                ),
+                // const Text(
+                //   "Grocery\n        Picker",
+                //   style: TextStyle(
+                //       color: Colors.green,
+                //       fontSize: 46,
+                //       fontWeight: FontWeight.bold,
+                //       fontFamily: "autumn_in_november"),
+                // ),
+                Image.asset("assets/images/splashScreen_background1.png"),
                 Card(
                   elevation: 10,
                   shape: RoundedRectangleBorder(
@@ -158,40 +173,23 @@ class _LoginPageState extends State<LoginPage> {
                           AnimatedScale(
                               duration: Duration(seconds: 1),
                               scale: !isLoginstate ? 1 : 0,
-                              child: LoginInputField(
+                              child: CustomInputField(
                                 hintText: 'username',
                                 controller: usernameTextController,
                               )),
-                        LoginInputField(
+                        CustomInputField(
                           hintText: 'email',
                           controller: emailTextController,
                         ),
-                        LoginInputField(
+                        CustomInputField(
                           hintText: 'password',
                           controller: passwordTextController,
                           isPassword: true,
                         ),
-                        GestureDetector(
-                          onTap: isLoginstate ? firebaseLogin : firebaseSignup,
-                          child: Container(
-                            margin: EdgeInsets.only(bottom: 20),
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              color: Colors.green,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 30, vertical: 10),
-                                child: Text(
-                                  btnText,
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                        CustomButton(
+                          btnText: btnText,
+                          onClick:
+                              isLoginstate ? firebaseLogin : firebaseSignup,
                         )
                       ],
                     ),

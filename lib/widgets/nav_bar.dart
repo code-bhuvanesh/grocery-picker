@@ -78,10 +78,15 @@ class _NavBarState extends State<NavBar> {
               ),
               ...widget.items
                   .asMap()
-                  .map((pos, item) => MapEntry(pos,
-                      navBarItem(pos, item, width * (1 / widget.items.length))))
+                  .map((pos, item) => MapEntry(
+                        pos,
+                        Expanded(
+                          child: navBarItem(
+                              pos, item, width * (1 / widget.items.length)),
+                        ),
+                      ))
                   .values
-                  .toList()
+                  .toList(),
             ],
           ),
         ),
@@ -90,26 +95,25 @@ class _NavBarState extends State<NavBar> {
   }
 
   Widget navBarItem(int pos, String path, double width) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            xAlign = alignfactor(pos);
-          });
-          widget.onItemTap(pos);
-        },
-        child: Align(
-          alignment: Alignment(alignfactor(pos), 0),
-          child: Container(
-            width: width,
-            alignment: Alignment.center,
-            child: SvgPicture.asset(
-              path,
-              height: 20,
-              width: 20,
-              color: widget.itemColor,
-            ),
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          xAlign = alignfactor(pos);
+        });
+        widget.onItemTap(pos);
+      },
+      child: Align(
+        alignment: Alignment(alignfactor(pos), 0),
+        child: Container(
+          width: width,
+          alignment: Alignment.center,
+          child: SvgPicture.asset(
+            path,
+            height: 20,
+            width: 20,
+            color: widget.itemColor,
           ),
+          // child: Icon(Icons.wrong_location),
         ),
       ),
     );

@@ -4,7 +4,7 @@ import json
 import random
 
 
-cred = credentials.Certificate("E:\Projects\\flutterApp\grocery_picker\python\google-services.json")
+cred = credentials.Certificate("E:\Projects\Flutter_projects\grocery_picker\python\google-services.json")
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -12,8 +12,10 @@ db = firestore.client()
 
 
 dat = {}
-with open("E:\Projects\\flutterApp\grocery_picker\python\grocerypicker.json") as json_file:
-    data = json.load(json_file)
+data = None
+def load_json():
+  with open("grocerypicker.json") as json_file:
+      data = json.load(json_file)
 
 # for i in data:
 #     doc = collection.document(i).set(data[i])
@@ -41,7 +43,6 @@ def shuffle_dict(dictToShuffle):
     return ShuffledDict
 
 
-col = db.collection("stores")
 
 def setSearchParam(name):
   caseSearchList = list()
@@ -52,13 +53,14 @@ def setSearchParam(name):
   return caseSearchList
 
 
-for i in data["stores"]:
-    data["stores"][i]["searchCase"] = setSearchParam(i.lower())
-    print(data["stores"][i]["items"])
-    print("  ")
-    data["stores"][i]["items"] = shuffle_dict(data["stores"][i]["items"])
-    print(data["stores"][i]["items"])
-    col.document(i).set(data["stores"][i])
+# for i in data["stores"]:
+#   col = db.collection("stores")
+#   data["stores"][i]["searchCase"] = setSearchParam(i.lower())
+#   print(data["stores"][i]["items"])
+#   print("  ")
+#   data["stores"][i]["items"] = shuffle_dict(data["stores"][i]["items"])
+#   print(data["stores"][i]["items"])
+#   col.document(i).set(data["stores"][i])
 
 
 
@@ -66,3 +68,35 @@ for i in data["stores"]:
 
 # out = collection.document("users").get()
 # print(out._data)
+
+
+def delete_collection(coll_ref):
+        docs = coll_ref.list_documents()
+
+        for doc in docs:
+            print(f'Deleting doc {doc.id} => {doc.get().to_dict()}')
+            doc.delete()
+
+        
+
+
+def updateData():
+  map = {}
+  data = db.collection("stores").stream()
+  # print(type(data))
+  # print(data)
+  for doc in data:
+    map[doc.id] = doc.to_dict()
+    # del_col =  db.collection("stores").document(doc.id).collection("items")
+    # delete_collection(del_col)
+    items = doc.to_dict()["items"]
+    for item in items:
+      # print({item: items[item]})
+      items[item]["imageLink"] = f"https://firebasestorage.googleapis.com/v0/b/grocerypicker-862b3.appspot.com/o/items%20images%2F{item}.jpg?alt=media&token=b252239b-4a3f-4355-92a8-c2f46cfe9332"
+      db.collection("stores").document(doc.id).collection("items").add({item: items[item]})
+  print("completed")
+
+    # print(f'{doc.id} => {doc.to_dict()["items"]}')
+    # print("\n\n")
+
+updateData()

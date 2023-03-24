@@ -28,7 +28,7 @@ class _ToggleButtonState extends State<ToggleButton> {
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width - 50;
-    print("width = " + width.toString());
+    debugPrint("width = " + width.toString());
     return Center(
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10),

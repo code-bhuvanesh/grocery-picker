@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
 
-class LoginInputField extends StatelessWidget {
-  LoginInputField(
+class CustomInputField extends StatelessWidget {
+  CustomInputField(
       {Key? key,
       required this.hintText,
       required this.controller,
-      this.isPassword})
+      this.borderRadius = 20,
+      this.isPassword, this.keyboardType})
       : super(key: key);
+      TextInputType? keyboardType = TextInputType.text; 
   final String hintText;
   bool? isPassword = false;
   final TextEditingController controller;
+  double borderRadius = 20;
   @override
   Widget build(BuildContext context) {
     isPassword ??= false;
-    OutlineInputBorder tfBorder = const OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.green, width: 1.0),
-        borderRadius: BorderRadius.all(Radius.circular(20)));
+    OutlineInputBorder tfBorder = OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.green, width: 1.0),
+        borderRadius: BorderRadius.all(Radius.circular(borderRadius)));
     return Container(
-        margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+        margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
         child: TextField(
           controller: controller,
           obscureText: isPassword!,
+          keyboardType: keyboardType,
           decoration: InputDecoration(
             labelText: hintText,
             labelStyle: const TextStyle(color: Colors.grey),
