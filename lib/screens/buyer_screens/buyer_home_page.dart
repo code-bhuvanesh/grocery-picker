@@ -473,6 +473,7 @@ Future<GeoFirePoint?> getPosition() async {
     debugPrint("loaction service is disabled");
     return null;
   }
+  return null;
 }
 
 Future<String> getLocality(double latitude, double longitude) async {

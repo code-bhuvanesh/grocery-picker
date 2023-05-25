@@ -1,5 +1,7 @@
+import requests
+
 import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import credentials, firestore, messaging
 import json
 import random
 
@@ -99,4 +101,21 @@ def updateData():
     # print(f'{doc.id} => {doc.to_dict()["items"]}')
     # print("\n\n")
 
-updateData()
+def send_notification(token, title, message):
+    message = messaging.Message(
+    notification=messaging.Notification(
+        title=title,
+        body=message
+    ),
+    data={
+        'click_action': 'FLUTTER_NOTIFICATION_CLICK'
+    },
+    token=token
+    )
+    response = messaging.send(message)
+    print('Notification sent successfully:', response)
+
+device_notication_token = "eiVQq5mqRCKMIccVQPsVtY:APA91bErwLg8eWcCwyUFOT2qJQXIpk9TugrNDTIxwCEVoPdFtYMYIyKX4bMIXORekoSTObahFDQm6aUbSocBkBMEFRclsEexs6d9oYdeiO6A0w8rwf48x1HYiMO8f6nLaOyRpDmBx_YR"
+send_notification(device_notication_token,"first notification","this is a test notification delete it once you got!")
+
+# updateData()
