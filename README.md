@@ -18,13 +18,23 @@ Grocery Picker is an e-commerce app that connects shopkeepers directly with cust
 - Flutter: The frontend of the app is developed using the Flutter framework, enabling cross-platform mobile application development.
 - Firebase: The backend of the app is implemented using Firebase, a cloud-based platform that provides various services such as authentication, real-time database, cloud storage, and payment integration.
 
-## Screenshots
+## User Screenshots
 
-![Screenshot 1](https://github.com/code-bhuvanesh/grocery_picker/blob/37c93c3764b3189973c093cf4190a4a753e59646/screenshots/login_page.jpg)
-![Screenshot 2](screenshots/screenshot2.png)
-![Screenshot 3](screenshots/screenshot3.png)
-![Screenshot 4](screenshots/screenshot4.png)
-![Screenshot 5](screenshots/screenshot5.png)
+![login_page](https://github.com/code-bhuvanesh/grocery_picker/blob/37c93c3764b3189973c093cf4190a4a753e59646/screenshots/login_page.jpg)
+![cart_page](https://github.com/code-bhuvanesh/grocery_picker/blob/052e267633dadf19c257c0d7b9bb50ba1561f31a/screenshots/user_cart_page.jpg)
+![home_page](https://github.com/code-bhuvanesh/grocery_picker/blob/052e267633dadf19c257c0d7b9bb50ba1561f31a/screenshots/user_home_page.jpg)
+![order_page](https://github.com/code-bhuvanesh/grocery_picker/blob/052e267633dadf19c257c0d7b9bb50ba1561f31a/screenshots/user_order_page.jpg)
+![order_page](https://github.com/code-bhuvanesh/grocery_picker/blob/052e267633dadf19c257c0d7b9bb50ba1561f31a/screenshots/user_order_page_detailed.jpg)
+
+## Seller Screenshots
+![home_page](https://github.com/code-bhuvanesh/grocery_picker/blob/052e267633dadf19c257c0d7b9bb50ba1561f31a/screenshots/seller_home_page.jpg)
+![add_item](https://github.com/code-bhuvanesh/grocery_picker/blob/052e267633dadf19c257c0d7b9bb50ba1561f31a/screenshots/seller_add_item_page.jpg)
+![recived_orders](https://github.com/code-bhuvanesh/grocery_picker/blob/052e267633dadf19c257c0d7b9bb50ba1561f31a/screenshots/seller_recieved_orders%20_page.jpg)
+
+
+
+![choose](https://github.com/code-bhuvanesh/grocery_picker/blob/052e267633dadf19c257c0d7b9bb50ba1561f31a/screenshots/choose_your_role_page.jpg)
+![name your shop](https://github.com/code-bhuvanesh/grocery_picker/blob/99fbee28fdbac9c9d398427fd797c63663a91163/screenshots/name_your_shop.jpg)
 
 ## Usage
 
