@@ -20,7 +20,7 @@ Grocery Picker is an e-commerce app that connects shopkeepers directly with cust
 
 ## Screenshots
 
-![Screenshot 1](https://github.com/code-bhuvanesh/grocery_picker/blob/792e4622339451d0d7004e9f86fc05ffe632364a/screenshots/login_page.jpg)
+![Screenshot 1](https://github.com/code-bhuvanesh/grocery_picker/blob/37c93c3764b3189973c093cf4190a4a753e59646/screenshots/login_page.jpg)
 ![Screenshot 2](screenshots/screenshot2.png)
 ![Screenshot 3](screenshots/screenshot3.png)
 ![Screenshot 4](screenshots/screenshot4.png)
