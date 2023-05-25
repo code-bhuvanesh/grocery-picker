@@ -43,7 +43,7 @@ Grocery Picker is an e-commerce app that connects shopkeepers directly with cust
 1. Launch the Grocery Picker app.
 2. Create a shop profile by providing the necessary details such as name, location, and contact information.
 3. Add items to your store inventory, including their names, prices, quantities, and descriptions.
-4. Specify the stock availability for each item.
+4. Specify the stock availability for each item.`(yet to be done)`
 
 ### Customer
 
@@ -54,7 +54,7 @@ Grocery Picker is an e-commerce app that connects shopkeepers directly with cust
 5. Add items to your cart by specifying the desired quantity.
 6. Review your cart and make adjustments if needed.
 7. Proceed to the checkout process.
-8. Make payment using the integrated payment gateway.
+8. Make payment using the integrated payment gateway.`(yet to be done)`
 9. Receive confirmation of your order and track its status.
 
 ## Limitations and Future Improvements
